@@ -734,6 +734,131 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
  .cuidado-aviso,.nota.cuidado-aviso{padding:14px 16px}
 }
 @media(forced-colors:active){.cuidados-opcion input[type=checkbox]{appearance:auto}.cuidados-opcion input::before{display:none}}
+
+/* Un único afiche. Sin las áreas de la antigua vidriera. */
+.vidriera[data-cartel]{display:flex;flex-direction:column;align-items:center;gap:0;margin:0;padding:44px 56px 48px;background:var(--papel);color:var(--verde);text-align:center;border-top:5px solid var(--rojo);box-shadow:0 8px 24px #0002}
+[data-cartel] [data-nombre]{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--rojo);margin:0 0 34px}
+[data-cartel] .imp-frase{font-size:clamp(42px,5.3vw,68px);line-height:1.04;letter-spacing:-.04em;color:var(--verde);max-width:15em;margin:0 0 32px;text-wrap:balance}
+[data-cartel] [data-frase-bloque]{max-width:650px}
+[data-cartel] [data-frase]{font-size:20px;line-height:1.45;font-weight:500;margin:0 0 10px;text-wrap:balance}
+[data-cartel] [data-frase-segunda]{font-size:15px;line-height:1.65;margin:0;max-width:580px;margin-inline:auto;text-wrap:pretty}
+[data-cartel] .imp-puerta{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%;max-width:680px;margin-top:38px}
+[data-cartel] .imp-puerta a[data-puerta]{display:flex;align-items:center;justify-content:space-between;min-height:80px;padding:20px 26px;border:1px solid var(--verde);border-radius:0;background:transparent;color:var(--verde);font-family:var(--serif);font-size:29px;line-height:1.2;text-decoration:none}
+[data-cartel] [data-puerta]::after{content:"↗" / "";font-family:var(--sans);font-size:24px;margin-left:18px}
+[data-cartel] .imp-puerta a[data-puerta='timbre']{background:var(--verde);color:var(--papel)}
+[data-cartel] .imp-puerta a[data-puerta]:hover{background:var(--tinta);color:var(--papel)}
+[data-cartel] :focus-visible{outline-color:var(--rojo)}
+/* Una jerarquía y un ritmo para toda la explicación. */
+.que-es[data-que-es-pagina]{max-width:1040px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px;align-items:start}
+.que-es>h1{grid-column:1/-1;margin:0 0 36px;padding-bottom:26px;border-bottom:1px solid var(--linea)}
+.que-es>[data-frase-bloque]{align-self:center}
+.que-es [data-frase]{font-family:var(--serif);font-size:clamp(27px,3vw,36px);line-height:1.16;letter-spacing:-.02em;color:var(--acento);margin:0 0 20px}
+.que-es [data-frase-segunda]{font-size:15px;line-height:1.75;max-width:36em;margin:0}
+.que-es>.video{margin:0;align-self:center}
+.que-es>[data-seccion]{grid-column:1/-1;min-width:0;width:100%;margin:52px 0 0;padding-top:28px;border-top:1px solid var(--linea)}
+.que-es [data-seccion]>h2{font-family:var(--serif);font-size:32px;font-weight:400;line-height:1.1;letter-spacing:-.02em;margin:0 0 24px}
+.que-es [data-cajas]{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.que-es [data-caja]{position:relative;background:var(--papel);color:var(--verde);padding:24px;min-height:180px;font-family:var(--serif);font-size:25px;line-height:1.25}
+.que-es [data-caja]::before{content:"0" attr(data-caja) / "";display:block;font-family:var(--sans);font-size:12px;letter-spacing:.12em;color:var(--rojo);margin-bottom:26px}
+.que-es [data-caja]:not(:last-child)::after{content:"→" / "";position:absolute;right:-19px;top:22px;width:22px;z-index:1;background:var(--acento);color:var(--verde);text-align:center;font:20px/24px var(--sans)}
+.que-es [data-seccion='entre-conocidos']{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px}
+.que-es [data-seccion='entre-conocidos']>h2{grid-column:1/-1}
+.que-es [data-aval-cadena]{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.que-es [data-eslabon]{border:1px solid var(--linea);padding:14px 20px;font-size:13px;line-height:1.5}
+.que-es [data-eslabon]::before{content:attr(data-de) "  →  " attr(data-a) / "";display:block;white-space:pre;font-family:var(--serif);font-size:28px;line-height:1.3;color:var(--acento);margin-bottom:5px}
+.que-es [data-aval-cadena]>li:last-child{border-style:dashed;border-color:var(--acento)}
+.que-es [data-seccion='entre-conocidos']>.video{grid-column:2;grid-row:2/4;align-self:center;margin:0}
+.que-es [data-aval-confianza]{grid-column:1;font-size:14px;margin:20px 0 0}
+.que-es [data-ejemplos]{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0;padding:0;counter-reset:ejemplo}
+.que-es [data-ejemplo]{counter-increment:ejemplo;min-height:170px;padding:22px;background:var(--papel);color:var(--verde);font-size:16px;line-height:1.6;border-top:3px solid var(--acento)}
+.que-es [data-ejemplo]::before{content:counter(ejemplo,decimal-leading-zero) / "";display:block;font-size:11px;letter-spacing:.12em;margin-bottom:20px;color:var(--rojo)}
+.que-es [data-ejemplo]:nth-child(3n+2){background:#e0c5ab}
+.que-es [data-ejemplo]:nth-child(3n){background:#c9d0b9}
+.que-es [data-ejemplo='banda']{grid-column:1/-1;min-height:0;display:flex;gap:22px;align-items:baseline}
+.que-es [data-ejemplo='banda']::before{margin:0}
+.que-es .sin-favor{font-size:14px;margin:22px 0 12px}
+.que-es .contra{font-family:var(--serif);font-size:26px;line-height:1.3;color:var(--acento);max-width:27em;margin:0}
+.que-es [data-que-no-es]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0;line-height:1.5}
+.que-es [data-no-es]{padding:24px 18px;border:1px solid var(--linea);font-family:var(--serif);font-size:25px;text-align:center;text-decoration:line-through;text-decoration-color:var(--acento);text-decoration-thickness:1px}
+.que-es [data-no-se-buscan-personas],.que-es [data-sin-puntajes]{grid-column:1/-1;font-size:15px}
+.que-es [data-no-se-buscan-personas]{margin-top:6px}
+.que-es [data-sin-puntajes]{margin-top:-10px}
+.que-es [data-apuesta]{max-width:26em;font-family:var(--serif);font-size:clamp(28px,3vw,38px);line-height:1.25;margin:0;padding:26px 30px;border-left:3px solid var(--acento);background:var(--verde)}
+.que-es>[data-nortes]{max-width:780px;justify-self:start;padding:26px 30px;border:1px solid var(--linea)}
+.que-es [data-norte]{font-family:var(--sans);font-size:14px;padding:13px 0;line-height:1.6}
+.que-es .nortes>.nota{color:var(--acento);opacity:1}
+.que-es [data-casa-leyenda]{font-size:15px;margin:0 0 20px}
+.que-es [data-casa-barra]{display:flex;max-width:780px;padding-bottom:35px}
+.que-es [data-casa-parte]{flex:0 0 var(--parte);min-width:0;border-top:24px solid var(--acento);padding-top:12px;white-space:nowrap;font-size:13px;line-height:1.4}
+.que-es [data-casa-parte='pozo']{border-color:var(--papel);text-align:right}
+.que-es [data-que-es-pie]{grid-column:1/-1;justify-content:space-between;border-top:1px solid var(--linea);padding-top:28px;margin-top:30px}
+.que-es [data-que-es-pie] .boton{min-height:60px;min-width:230px}
+/* Primero la entrada; abajo la cartelera con sus filtros intactos. */
+[data-timbre].hoja{max-width:820px}
+[data-timbre]>h1{margin-bottom:24px}
+[data-timbre]>[data-aval-confianza]{font-family:var(--serif);font-size:26px;line-height:1.3;max-width:25em}
+[data-timbre]>[data-aval-explica]{margin:8px 0 24px;max-width:100%;font-size:15px}
+[data-timbre-botones]{display:flex;flex-wrap:wrap;gap:14px;margin:0 0 26px}
+[data-timbre-botones] a{min-width:180px;min-height:58px}
+[data-timbre]>div:last-child{max-width:320px}
+[data-timbre]>div:last-child .video{margin:0;padding:10px}
+[data-timbre]>div:last-child .video figcaption{font-size:12px}
+[aria-labelledby=cartelera-vereda]{margin-top:54px;border-top:1px solid var(--linea);padding-top:30px}
+[aria-labelledby=cartelera-vereda]>h2{font-size:32px;margin-bottom:26px}
+[data-pedir-pasos]{padding-left:24px;margin-bottom:28px}
+[data-pedir-paso]{padding:10px 0 10px 8px;border-bottom:1px solid var(--linea)}
+@media (max-width:800px){
+ .que-es[data-que-es-pagina]{column-gap:28px}
+ .que-es [data-seccion='entre-conocidos']{column-gap:28px}
+ .que-es [data-ejemplos]{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:620px){
+ .imp-top:not(:has(form)){flex-wrap:nowrap;gap:10px}
+ .imp-top:not(:has(form)) .imp-logo{font-size:27px}
+ .imp-top:not(:has(form)) .imp-nav{margin-left:auto;gap:8px;font-size:12px;flex-wrap:nowrap}
+ .imp-top:not(:has(form)) .imp-nav a{white-space:nowrap}
+ .imp-top:not(:has(form)) .imp-nav a:last-of-type{padding:8px}
+ .vidriera[data-cartel]{padding:30px 24px 28px}
+ [data-cartel] [data-nombre]{font-size:11px;margin-bottom:28px}
+ [data-cartel] .imp-frase{font-size:40px;line-height:1.06;margin-bottom:28px}
+ [data-cartel] [data-frase]{font-size:18px;line-height:1.45}
+ [data-cartel] [data-frase-segunda]{font-size:14px;line-height:1.65}
+ [data-cartel] .imp-puerta{grid-template-columns:1fr;gap:12px;margin-top:28px}
+ [data-cartel] .imp-puerta a[data-puerta]{min-height:66px;padding:16px 20px;font-size:26px}
+ .que-es[data-que-es-pagina]{grid-template-columns:minmax(0,1fr)}
+ .que-es>h1{margin-bottom:26px;padding-bottom:22px}
+ .que-es [data-frase]{font-size:30px}
+ .que-es>.video{margin-top:26px}
+ .que-es>[data-seccion]{margin-top:38px;padding-top:24px}
+ .que-es [data-seccion]>h2{font-size:30px;margin-bottom:22px}
+ .que-es [data-cajas]{grid-template-columns:1fr;gap:14px}
+ .que-es [data-caja]{min-height:0;padding:22px;display:flex;align-items:baseline;gap:20px;font-size:24px}
+ .que-es [data-caja]::before{margin:0;flex-shrink:0}
+ .que-es [data-caja]:not(:last-child)::after{content:"↓" / "";top:auto;bottom:-19px;right:22px}
+ .que-es [data-seccion='entre-conocidos']{grid-template-columns:minmax(0,1fr)}
+ .que-es [data-seccion='entre-conocidos']>.video{grid-column:1;grid-row:auto;margin-top:26px}
+ .que-es [data-ejemplos]{grid-template-columns:1fr;gap:12px}
+ .que-es [data-ejemplo]{min-height:0;padding:20px;display:flex;align-items:baseline;gap:20px}
+ .que-es [data-ejemplo]::before{margin:0;flex-shrink:0}
+ .que-es .contra{font-size:24px}
+ .que-es [data-que-no-es]{grid-template-columns:1fr;gap:12px}
+ .que-es [data-no-es]{padding:18px;text-align:left;font-size:24px}
+ .que-es [data-sin-puntajes]{margin-top:0}
+ .que-es [data-apuesta]{padding:22px;font-size:30px}
+ .que-es>[data-nortes]{padding:24px}
+ .que-es [data-casa-barra]{padding-bottom:28px}
+ .que-es [data-casa-parte]{font-size:12px}
+ .que-es [data-casa-parte='pozo']{padding-top:36px}
+ .que-es [data-que-es-pie]{gap:24px}
+ .que-es [data-que-es-pie] .boton{min-width:0;flex:1}
+ [data-timbre].hoja{display:block}
+ [data-timbre]>[data-aval-confianza]{font-size:25px}
+ [data-timbre-botones]{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+ [data-timbre-botones] a{min-width:0;padding:14px 12px}
+ [data-timbre]>div:last-child{max-width:280px}
+ [aria-labelledby=cartelera-vereda]{margin-top:38px;padding-top:26px}
+ [aria-labelledby=cartelera-vereda]>h2{font-size:30px;max-width:10em}
+}
 </style>
 </head>
 <body>
@@ -787,12 +912,12 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 </div>
 <p class="pie cond"><span>Jue 10 dic · 19 h</span><span>Quedan 4</span></p>
 </li>
-<li data-afiche data-encuentro="e-35" data-clase="taller" data-ciudad="Buenos Aires" data-categoria="libros" data-etiquetas="cartas,familia,escritura,boedo" data-tamano="mediano" data-tinta="azul" data-dibujo="filete" data-mesa-de-mujeres class="imp-afiche abre">
+<li data-afiche data-encuentro="e-35" data-clase="taller" data-ciudad="Buenos Aires" data-categoria="libros" data-etiquetas="cartas,familia,escritura,boedo" data-tamano="mediano" data-tinta="azul" data-dibujo="filete" data-entre-mujeres class="imp-afiche abre">
 <span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>libros</span><span>Buenos Aires</span></p>
 <h3 class="grande"><a class="abre-enlace" href="../../encuentros/e-35/" data-tema>Cartas de familia, entre vecinas</a></h3>
 <div class="afiche-detalles">
 <p class="linea afiche-para-quien" data-para-quien>Para las que guardan cartas de familia y no saben qué hacer con ellas</p>
-<p class="linea encuadre-rotulos"><span class="cond encuadre-mesa" data-mesa-rotulo>Mesa de mujeres</span></p>
+<p class="linea encuadre-rotulos"><span class="cond encuadre-mesa" data-entre-mujeres-rotulo>Entre mujeres</span></p>
 <p class="linea afiche-zona"><span data-zona>Boedo</span>, en <span data-sede data-valor="s-01">Librería La Hoja Suelta</span> (librería)</p>
 <p class="linea" data-etiquetas-lista><span data-etiqueta>cartas</span> <span data-etiqueta>familia</span> <span data-etiqueta>escritura</span> <span data-etiqueta>boedo</span></p>
 </div>

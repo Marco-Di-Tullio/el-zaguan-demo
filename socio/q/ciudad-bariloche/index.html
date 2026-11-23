@@ -150,15 +150,6 @@ select{appearance:none;padding-right:40px;background-image:linear-gradient(45deg
 .interior ul{list-style:none;margin:0 0 12px;padding:0}
 .interior li{margin:0 0 7px}
 .interior small{font-size:12px;color:#bdc7ba;margin-left:8px}
-.reglas{margin:0;padding:0}
-.reglas-pagina .reglas{list-style:none;counter-reset:regla}
-.reglas-pagina .reglas li{position:relative;counter-increment:regla;padding:24px 0 24px 54px;border-top:1px solid var(--linea)}
-.reglas-pagina .reglas li::before{content:counter(regla,decimal-leading-zero);position:absolute;left:0;top:25px;color:var(--acento);font-size:14px}
-.reglas-pagina .reglas li>p:first-child{font-family:var(--serif);font-size:25px;line-height:1.25;margin-bottom:12px}
-.reglas-pagina .reglas li>p:first-child strong{font-weight:400}
-.reglas-pagina .regla-texto{font-size:15px;line-height:1.65;color:#c4cbbf;margin:0}
-.reglas-pagina .regla-texto strong{font-weight:500}
-.reglas-pagina>p:last-child{margin-top:24px;font-size:14px}
 details[data-regla]{padding:9px 0;border-bottom:1px solid var(--linea)}
 details[data-regla] summary{cursor:pointer;display:flex;gap:14px;font-size:14px;list-style:none}
 details[data-regla] summary::-webkit-details-marker{display:none}
@@ -172,14 +163,6 @@ details[data-regla] .regla-texto{font-family:var(--serif);font-size:18px;margin:
 .fila label{flex:1;margin:0}
 .fila button{flex-shrink:0}
 .volver{margin:36px 0 0;font-size:14px}
-.manifiesto{max-width:760px;margin:auto;background:var(--papel-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='papel'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpath fill='%23000' opacity='.045' filter='url(%23papel)' d='M0 0h160v160H0z'/%3E%3C/svg%3E");color:var(--tinta);padding:64px 64px 72px;font-family:var(--serif);font-size:20px;line-height:1.65}
-.manifiesto h1{font-size:clamp(40px,5vw,64px);padding-bottom:30px;border-bottom:1px solid var(--borde-papel);margin-bottom:32px}
-.manifiesto h2{margin:40px 0 20px;font-size:32px}
-.manifiesto h3{font-size:26px;margin-top:30px}
-.manifiesto ol{padding-left:25px}
-.manifiesto li{padding:0 0 20px 10px}
-.manifiesto li::marker,.manifiesto .regla-numero{color:var(--rojo)}
-.manifiesto hr{border:0;border-top:1px solid var(--borde-papel);margin:40px 0}
 .empanado{position:relative;overflow:hidden;max-width:720px;min-height:380px;margin:30px auto;padding:70px 56px;border:1px solid var(--linea);background:linear-gradient(125deg,#dce6cf17,#ffffff05)}
 .empanado-vidrio{position:absolute;inset:30px;filter:blur(8px);opacity:.2;font-family:var(--serif);font-size:40px;line-height:1.8;letter-spacing:.18em;pointer-events:none;user-select:none}
 .empanado-cartel{position:relative;max-width:470px}
@@ -205,7 +188,6 @@ details[data-regla] .regla-texto{font-family:var(--serif);font-size:18px;margin:
  .cartelera-socio{align-items:flex-start;flex-direction:column;gap:10px}.cartelera-socio h1{font-size:46px}
  .encuentro-pagina{grid-template-columns:1fr;gap:30px}.imp-solo .imp-afiche{min-height:390px}.imp-solo .grande{font-size:46px}
  .ficha{padding:22px}.fila{flex-wrap:wrap}.fila label{flex-basis:100%}
- .manifiesto{padding:32px 24px;font-size:19px}.manifiesto h1{font-size:42px}.manifiesto h2{font-size:28px}
  .empanado{padding:40px 26px;min-height:340px}.empanado-corto{min-height:0;font-size:24px}.empanado-cartel h1{font-size:38px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}.imp-pared .imp-afiche:hover{transform:none}}
@@ -478,6 +460,125 @@ svg.oculto{position:absolute;width:0;height:0;overflow:hidden}
 .mas-resumen .mas-datos{margin-top:12px}
 @media (max-width:800px){.encuentro-pagina:has(>.mas){grid-template-columns:1fr;gap:30px}.encuentro-pagina>.mas{display:block;margin:0}.encuentro-pagina:has(>.mas)>.interior{grid-column:auto;grid-row:auto}.encuentro-pagina>.mas>.mas-socios{margin-top:24px}.mas-datos{gap:0 18px}}
 @media (max-width:380px){.mas-datos{grid-template-columns:1fr}}
+
+/* La relación acompaña al nombre, sin tomar su jerarquía. */
+a[href^="/socios/"]{text-decoration-color:currentColor;text-underline-offset:3px;overflow-wrap:anywhere}
+span[data-pasos]{display:inline-block;max-width:100%;font-family:var(--sans);font-size:12px;font-weight:400;line-height:1.5;letter-spacing:0;text-transform:none;vertical-align:baseline;overflow-wrap:anywhere}
+a[href^="/socios/"]+span[data-pasos]{margin-left:6px}
+span[data-pasos][data-pasos=""]{font-style:italic}
+.mas-socios>p:first-child span[data-pasos]{font-weight:400;color:inherit}
+.pedido-camino{margin:3px 0 0;font-size:12px}
+.mensaje-quien{justify-content:flex-start;align-items:baseline;gap:4px 12px}
+.mensaje-quien time{margin-left:auto}
+.mensaje-quien span[data-pasos]{color:var(--papel);margin-left:0}
+.interior [data-linea]>small{display:block;margin:6px 0 0}
+.club-entrada [data-pedido]{justify-content:flex-start;gap:6px 12px}
+.club-entrada [data-pedido] form{margin-left:auto}
+
+/* Los filtros conservan el trazo de los de ciudad y categoría. */
+.filtro-cerca a[aria-current]{font-weight:500}
+.lo-que-se-busca>.filtro-cerca{margin-bottom:0;border-bottom:0;padding-bottom:4px}
+.lo-que-se-busca>[data-filtro-categoria]{margin-top:0;border-top:0;padding-top:4px}
+[data-vacio-cerca]{max-width:36em}
+
+/* Una acción secundaria, con los mismos controles que el resto. */
+.acercar,.propuesta-acercar{border-top:1px solid var(--linea);padding-top:24px;margin-top:28px}
+.acercar h2,.propuesta-acercar h2{font-size:12px;color:var(--acento);margin-bottom:18px}
+:is(.acercar,.propuesta-acercar) form{max-width:34em;display:grid;gap:16px}
+:is(.acercar,.propuesta-acercar) form label{margin:0}
+:is(.acercar,.propuesta-acercar) form button{justify-self:start}
+[data-sin-conocidos]{max-width:34em}
+[data-acercado-ok]{border-left:2px solid var(--acento);padding:10px 16px;opacity:1;font-size:14px}
+
+/* Avisos de edición, con tinta corriente: no son errores. */
+.aviso-limpieza,p.tope-ofrecimientos{border:1px solid var(--linea);border-left:2px solid var(--acento);padding:14px 18px;margin:0 0 24px;font-size:14px;line-height:1.6;color:inherit;opacity:1;max-width:52em}
+.aviso-limpieza p{margin:0}
+.aviso-limpieza p+p{margin-top:6px}
+.ficha .aviso-limpieza,.ficha p.tope-ofrecimientos{border-left-color:var(--verde)}
+.carnet-pagina>.aviso-limpieza{max-width:1040px;margin-inline:auto}
+section.tope-ofrecimientos ul{list-style:none;margin:28px 0;padding:0}
+section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
+
+/* Letra chica de imprenta en todos los pozos. */
+[data-casa-leyenda],.imp-afiche .linea[data-casa-leyenda],.imp-solo .linea[data-casa-leyenda]{font-family:var(--sans);font-size:12px;line-height:1.5;letter-spacing:0;font-weight:400}
+.imp-afiche .linea[data-casa-leyenda]{margin-top:4px;max-width:30em}
+
+/* Las notas que dejaron y la red propia se leen debajo del cartón. */
+.carnet-abajo{align-items:start}
+.carnet-abajo>section{min-width:0}
+.carnet-red,.carnet-avales,.carnet-acercaron{border-top:1px solid var(--linea);padding-top:24px}
+.carnet-red h2,.carnet-avales h2,.carnet-acercaron h2{font-size:12px;letter-spacing:.14em;color:var(--acento);margin-bottom:18px}
+[data-red] h3{font-family:var(--sans);font-size:14px;font-weight:500;line-height:1.5;letter-spacing:0;margin:24px 0 10px}
+[data-red] .renglones li{font-family:var(--sans);font-size:16px;line-height:1.6;padding:12px 0}
+[data-red] .renglones .nota{display:block;margin-top:4px;font-size:13px}
+[data-te-acercaron] .renglones{display:grid;gap:16px}
+[data-te-acercaron] [data-acercado]{background:var(--papel);color:var(--verde);padding:20px;border:0;box-shadow:0 4px 8px #0001;overflow-wrap:anywhere}
+[data-acercado]>a{display:block;font-family:var(--serif);font-size:24px;line-height:1.2;margin-bottom:14px}
+[data-acercado]>span{display:block;font-family:var(--sans);font-size:12px;line-height:1.6}
+[data-acercado] span[data-pasos]{margin-left:0}
+[data-acercado-linea]{display:block;font-family:var(--serif);font-size:20px;line-height:1.4;border-top:1px solid var(--borde-papel);margin-top:14px;padding-top:14px;quotes:none}
+[data-avales-quedan]{font-size:14px;margin-bottom:22px}
+.carnet-avales form .nota{font-size:13px}
+
+/* El carnet ajeno es otro cartón, sin campos para editar. */
+.hoja.carnet-ajeno{max-width:780px;padding:0;background:var(--carton);color:var(--verde);border-radius:5px;box-shadow:0 16px 35px #0003;overflow:hidden;--linea:var(--borde-papel)}
+.carnet-ajeno .ceja,.carnet-ajeno .carnet-etiquetas{color:var(--verde)}
+.carnet-ajeno-frente{padding:28px 32px 24px;border-bottom:1px solid var(--borde-papel)}
+.carnet-ajeno-frente .ceja{border-bottom:1px solid var(--borde-papel);padding-bottom:16px;margin-bottom:22px}
+.carnet-ajeno-frente h1{font-size:clamp(32px,4vw,44px);margin-bottom:8px}
+.carnet-ajeno-frente p:last-child{margin:0}
+.carnet-ajeno-cuerpo{display:grid;grid-template-columns:1fr 1fr;gap:28px 32px;padding:28px 32px;background:var(--papel)}
+.carnet-ajeno-cuerpo>section{min-width:0}
+.carnet-ajeno h2{font-size:12px;letter-spacing:.12em;margin-bottom:14px}
+.carnet-ajeno [data-red]{grid-column:1/-1;border-top:1px solid var(--borde-papel);padding-top:24px}
+.carnet-ajeno .sellos-ajenos li{font-family:var(--sans);font-size:15px;line-height:1.5}
+.carnet-ajeno .sellos-ajenos li .nota{display:block;margin-top:4px;font-size:12px}
+.carnet-ajeno :focus-visible{outline-color:var(--rojo)}
+.hoja.carnet-ajeno[data-parcial]{max-width:540px;padding:32px}
+.carnet-ajeno[data-parcial] h1{font-size:40px;margin-bottom:12px}
+.carnet-ajeno[data-parcial]>.nota{font-size:13px;border-top:1px solid var(--borde-papel);padding-top:18px;margin:24px 0 0}
+
+/* Un libro de cuentas, sin cuadros ni gráficos. */
+.hoja.cuentas-casa{max-width:860px;padding:36px;background:var(--papel-2);color:var(--tinta);--linea:var(--borde-papel)}
+.cuentas-casa h1{font-size:clamp(34px,4vw,48px);max-width:12em}
+.cuentas-casa>.nota{font-size:13px;margin:10px 0 28px}
+.cuentas{list-style:none;margin:0;padding:0;border-top:2px solid var(--tinta)}
+.cuentas>li{display:grid;grid-template-columns:minmax(0,1fr) 120px 120px;gap:20px;border-bottom:1px solid var(--borde-papel);padding:18px 0;align-items:baseline}
+.cuentas>li>a{font-family:var(--serif);font-size:21px;line-height:1.3;overflow-wrap:anywhere}
+.cuenta-monto{text-align:right;font-size:16px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cuenta-monto>span{display:block;font-family:var(--sans);font-size:11px;margin-bottom:5px}
+.total-casa{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin:0;padding-top:22px;font-size:14px}
+.total-casa strong{font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
+.cuentas-casa :focus-visible{outline-color:var(--rojo)}
+
+/* Qué es: pocos párrafos y seis orientaciones, sin numerarlas. */
+.que-es .definicion{font-family:var(--serif);font-size:clamp(28px,3.5vw,38px);line-height:1.2;max-width:19em;margin-top:0}
+.que-es .zaguan{font-size:15px;margin:18px 0 26px}
+.que-es-detalles{font-size:15px}
+[data-que-no-es]{list-style:none;padding:0;margin:24px 0;font-size:14px;line-height:1.8}
+[data-apuesta]{font-family:var(--serif);font-size:24px;line-height:1.4;max-width:26em;margin:26px 0}
+.que-es>[data-casa-leyenda]{border-block:1px solid var(--linea);padding:16px 0;margin:0}
+[data-nortes]{margin-top:28px}
+[data-nortes] h2{font-size:28px;margin-bottom:18px}
+[data-nortes] ol{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;list-style:none;margin:0;padding:0}
+[data-norte]{border-top:1px solid var(--linea);padding:12px 0;font-family:var(--serif);font-size:18px;line-height:1.4}
+.nortes>.nota{margin:14px 0 0;font-size:13px}
+[data-aval-explica]{border-block:1px solid var(--linea);padding:18px 0;margin:26px 0;font-size:15px}
+[data-aval-explica] p{margin:0}
+[data-aval-explica] p+p{margin-top:8px}
+
+@media (max-width:620px){
+ a[href^="/socios/"]+span[data-pasos]{margin-left:0}
+ .carnet-ajeno-cuerpo{grid-template-columns:1fr;padding:24px;gap:24px}
+ .carnet-ajeno-frente,.hoja.carnet-ajeno[data-parcial]{padding:24px}
+ .hoja.cuentas-casa{padding:24px}
+ .cuentas>li{grid-template-columns:1fr 1fr;gap:12px}
+ .cuentas>li>a{grid-column:1/-1}
+ .cuenta-monto{text-align:left}
+ .cuentas>li .cuenta-monto:last-child{text-align:right}
+ [data-nortes] ol{grid-template-columns:1fr}
+ .mensaje-quien span[data-pasos]{flex-basis:100%;order:1}
+}
 </style>
 </head>
 <body>
@@ -496,8 +597,20 @@ svg.oculto{position:absolute;width:0;height:0;overflow:hidden}
 <main id="contenido" tabindex="-1">
 <div class="cartelera-socio"><h1>Cartelera</h1><p class="ceja">Entre socios</p></div>
 <div class="cartelera-barra"><p class="ceja">En cartelera</p><div class="cartelera-filtros"><nav class="filtro" aria-label="Filtrar por ciudad" data-filtro-ciudad><span class="filtro-rotulo">Ciudad</span><a href="../../">Todas</a> <a href="../ciudad-buenos-aires/">Buenos Aires</a> <a href="./" aria-current="page">Bariloche</a></nav>
-<nav class="filtro" aria-label="Filtrar por categoría" data-filtro-categoria><span class="filtro-rotulo">Categoría</span><a href="./" data-categoria="" aria-current="page">Todas</a> <a href="../categoria-musica--ciudad-bariloche/" data-categoria="música">música</a> <a href="../categoria-libros--ciudad-bariloche/" data-categoria="libros">libros</a> <a href="../categoria-caminatas--ciudad-bariloche/" data-categoria="caminatas">caminatas</a> <a href="../categoria-oficios--ciudad-bariloche/" data-categoria="oficios">oficios</a> <a href="../categoria-cocina--ciudad-bariloche/" data-categoria="cocina">cocina</a> <a href="../categoria-ideas--ciudad-bariloche/" data-categoria="ideas">ideas</a> <a href="../categoria-juegos--ciudad-bariloche/" data-categoria="juegos">juegos</a> <a href="../categoria-viajes--ciudad-bariloche/" data-categoria="viajes">viajes</a></nav></div></div>
+<nav class="filtro" aria-label="Filtrar por categoría" data-filtro-categoria><span class="filtro-rotulo">Categoría</span><a href="./" data-categoria="" aria-current="page">Todas</a> <a href="../categoria-musica--ciudad-bariloche/" data-categoria="música">música</a> <a href="../categoria-libros--ciudad-bariloche/" data-categoria="libros">libros</a> <a href="../categoria-caminatas--ciudad-bariloche/" data-categoria="caminatas">caminatas</a> <a href="../categoria-oficios--ciudad-bariloche/" data-categoria="oficios">oficios</a> <a href="../categoria-cocina--ciudad-bariloche/" data-categoria="cocina">cocina</a> <a href="../categoria-ideas--ciudad-bariloche/" data-categoria="ideas">ideas</a> <a href="../categoria-juegos--ciudad-bariloche/" data-categoria="juegos">juegos</a> <a href="../categoria-viajes--ciudad-bariloche/" data-categoria="viajes">viajes</a></nav>
+<nav class="filtro filtro-cerca" aria-label="Filtrar por cercanía" data-filtro-cerca><span class="filtro-rotulo">Gente</span><a href="./" aria-current="page">Todo</a> <a href="../cerca-1--ciudad-bariloche/">Cerca mío</a></nav></div></div>
 <ul class="imp-pared" data-lista-encuentros>
+<li data-afiche data-encuentro="e-24" data-clase="caminata" data-ciudad="Bariloche" data-categoria="viajes" data-etiquetas="visita,cerro otto,caminatas" data-tamano="chico" data-tinta="negro" data-dibujo="marco" data-visita data-desde="Buenos Aires" data-cerca class="imp-afiche abre">
+<span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>viajes</span><span>Bariloche</span></p>
+<h3 class="grande"><a class="abre-enlace" href="../../encuentros/e-24/" data-tema>Caminatas por el cerro Otto contando su historia</a></h3>
+<div class="afiche-detalles">
+<p class="linea"><span data-zona>Cerro Otto</span></p>
+<p class="linea" data-etiquetas-lista><span data-etiqueta>visita</span> <span data-etiqueta>cerro otto</span> <span data-etiqueta>caminatas</span></p>
+<p class="linea">Viene alguien de Buenos Aires</p>
+<p class="falta">Faltan <span data-falta>dos personas más</span>, <span data-falta>fecha</span> y <span data-falta>lugar</span>.</p>
+</div>
+<p class="pie cond"><span>fecha a definir</span><span class="faltan">Quedan 7</span></p>
+</li>
 <li data-afiche data-encuentro="e-03" data-clase="juego" data-ciudad="Bariloche" data-categoria="juegos" data-etiquetas="ajedrez,dados,juegos de mesa,principiantes" data-tamano="grande" data-tinta="ocre" data-dibujo="filete" class="imp-afiche abre">
 <span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>juegos</span><span>Bariloche</span></p>
 <h3 class="grande"><a class="abre-enlace" href="../../encuentros/e-03/" data-tema>Ajedrez &amp; dados: tarde de juegos &lt;nivel cero&gt;</a></h3>
@@ -548,7 +661,8 @@ svg.oculto{position:absolute;width:0;height:0;overflow:hidden}
 <div class="afiche-detalles">
 <p class="linea"><span data-zona>Zona a definir</span></p>
 <p class="linea" data-etiquetas-lista><span data-etiqueta>cocina patagónica</span> <span data-etiqueta>trucha ahumada</span> <span data-etiqueta>ahumado</span> <span data-etiqueta>cordero</span></p>
-<p class="linea"><span data-pozo data-meta="56000" data-juntado="0">Pozo: $0 de $56.000</span></p>
+<p class="linea"><span data-pozo data-meta="56000" data-juntado="0" data-casa="0">Pozo: $0 de $56.000</span></p>
+<p class="linea" data-casa-leyenda>De cada aporte, el 5% es para la casa.</p>
 <p class="falta">Faltan <span data-falta>fecha</span>, <span data-falta>lugar</span> y <span data-falta>completar el pozo</span>.</p>
 </div>
 <p class="pie cond"><span>fecha a definir</span><span class="faltan">Quedan 4</span></p>
@@ -562,17 +676,6 @@ svg.oculto{position:absolute;width:0;height:0;overflow:hidden}
 <p class="falta">Falta <span data-falta>fecha</span>.</p>
 </div>
 <p class="pie cond"><span>fecha a definir</span><span class="faltan">Quedan 4</span></p>
-</li>
-<li data-afiche data-encuentro="e-24" data-clase="caminata" data-ciudad="Bariloche" data-categoria="viajes" data-etiquetas="visita,cerro otto,caminatas" data-tamano="chico" data-tinta="negro" data-dibujo="marco" data-visita data-desde="Buenos Aires" class="imp-afiche abre">
-<span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>viajes</span><span>Bariloche</span></p>
-<h3 class="grande"><a class="abre-enlace" href="../../encuentros/e-24/" data-tema>Caminatas por el cerro Otto contando su historia</a></h3>
-<div class="afiche-detalles">
-<p class="linea"><span data-zona>Cerro Otto</span></p>
-<p class="linea" data-etiquetas-lista><span data-etiqueta>visita</span> <span data-etiqueta>cerro otto</span> <span data-etiqueta>caminatas</span></p>
-<p class="linea">Viene alguien de Buenos Aires</p>
-<p class="falta">Faltan <span data-falta>dos personas más</span>, <span data-falta>fecha</span> y <span data-falta>lugar</span>.</p>
-</div>
-<p class="pie cond"><span>fecha a definir</span><span class="faltan">Quedan 7</span></p>
 </li>
 <li data-afiche data-encuentro="e-26" data-clase="campo" data-ciudad="Bariloche" data-categoria="viajes" data-etiquetas="salida al campo,chacra,frutas finas,cosecha,frambuesas" data-tamano="chico" data-tinta="negro" data-dibujo="sello" class="imp-afiche abre">
 <span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>viajes</span><span>Bariloche</span></p>

@@ -583,6 +583,7 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 .grupo-socios span[data-pasos]{display:block;margin:4px 0 0}
 .grupo-sin-planear .grupo-encuentros{font-size:13px;line-height:1.5;opacity:1}
 .grupo-sin-planear .grupo-encuentros li{margin-bottom:7px}
+.grupo-sin-planear .grupo-encuentros small{color:inherit;opacity:.72}
 .grupo-sin-planear .formulario{border-top:1px solid var(--borde-papel);padding-top:20px;margin:0}
 .grupo-sin-planear .formulario>label{font-family:var(--serif);font-size:24px;font-weight:400}
 .grupo-sin-planear .formulario>.boton{margin-top:16px}
@@ -663,6 +664,11 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 .proponer-cuidados>.proponer-casilla{display:flex;align-items:center;gap:10px;margin:18px 0 8px;cursor:pointer;min-height:28px}
 .proponer-casilla input[type=checkbox],.cuidados-socia input[type=checkbox]{display:inline-block;flex:none;width:18px;height:18px;padding:0;margin:0;accent-color:var(--verde)}
 .proponer-casilla+.campo-ayuda{margin:0 0 18px;padding-left:28px}
+.proponer-cuidados .casa-direccion-campo{display:none;margin:0 0 0 28px;padding-top:16px;border-top:1px solid var(--borde-papel)}
+.proponer-cuidados:has(#campo-enCasa:checked) .casa-direccion-campo{display:block}
+.proponer-cuidados .casa-direccion-campo>label{margin-bottom:8px}
+.proponer-cuidados [data-direccion-explica]{font-size:14px;line-height:1.5;margin:0;opacity:1}
+.propuesta-datos [data-direccion-explica]{display:block;font-size:14px;line-height:1.5;margin-top:8px;opacity:1}
 .propuesta-datos>.propuesta-para-quien{grid-column:1/-1}
 .imp-afiche .afiche-para-quien,.imp-solo .afiche-para-quien{font-family:var(--serif);font-size:20px;line-height:1.3;margin-bottom:16px;overflow-wrap:anywhere}
 .pedido .afiche-para-quien{font-family:var(--serif);font-size:20px;line-height:1.35;opacity:1;margin:14px 0 12px;overflow-wrap:anywhere}
@@ -762,20 +768,19 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 .que-es [data-caja]::before{content:"0" attr(data-caja) / "";display:block;font-family:var(--sans);font-size:12px;letter-spacing:.12em;color:var(--rojo);margin-bottom:26px}
 .que-es [data-caja]:not(:last-child)::after{content:"→" / "";position:absolute;right:-19px;top:22px;width:22px;z-index:1;background:var(--acento);color:var(--verde);text-align:center;font:20px/24px var(--sans)}
 .que-es [data-seccion='entre-conocidos']{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px}
-.que-es [data-seccion='entre-conocidos']>h2{grid-column:1/-1}
+.que-es [data-seccion='entre-conocidos']>h2{grid-column:1/-1;margin-bottom:12px}
+.que-es .desconocidos-confiables{grid-column:1/-1;font-size:16px;line-height:1.5;margin:0 0 24px}
 .que-es [data-aval-cadena]{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .que-es [data-eslabon]{border:1px solid var(--linea);padding:14px 20px;font-size:13px;line-height:1.5}
 .que-es [data-eslabon]::before{content:attr(data-de) "  →  " attr(data-a) / "";display:block;white-space:pre;font-family:var(--serif);font-size:28px;line-height:1.3;color:var(--acento);margin-bottom:5px}
 .que-es [data-aval-cadena]>li:last-child{border-style:dashed;border-color:var(--acento)}
-.que-es [data-seccion='entre-conocidos']>.video{grid-column:2;grid-row:2/4;align-self:center;margin:0}
+.que-es [data-seccion='entre-conocidos']>.video{grid-column:2;grid-row:3/5;align-self:center;margin:0}
 .que-es [data-aval-confianza]{grid-column:1;font-size:14px;margin:20px 0 0}
-.que-es [data-ejemplos]{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0;padding:0;counter-reset:ejemplo}
-.que-es [data-ejemplo]{counter-increment:ejemplo;min-height:170px;padding:22px;background:var(--papel);color:var(--verde);font-size:16px;line-height:1.6;border-top:3px solid var(--acento)}
-.que-es [data-ejemplo]::before{content:counter(ejemplo,decimal-leading-zero) / "";display:block;font-size:11px;letter-spacing:.12em;margin-bottom:20px;color:var(--rojo)}
+.que-es [data-ejemplos]{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:16px;margin:0;padding:0;counter-reset:ejemplo}
+.que-es [data-ejemplo]{counter-increment:ejemplo;min-width:0;padding:20px;background:var(--papel);color:var(--verde);font-size:16px;line-height:1.5;border-top:3px solid var(--acento)}
+.que-es [data-ejemplo]::before{content:counter(ejemplo,decimal-leading-zero) / "";display:block;font-size:11px;line-height:1.5;letter-spacing:.12em;margin-bottom:10px;color:var(--rojo)}
 .que-es [data-ejemplo]:nth-child(3n+2){background:#e0c5ab}
 .que-es [data-ejemplo]:nth-child(3n){background:#c9d0b9}
-.que-es [data-ejemplo='banda']{grid-column:1/-1;min-height:0;display:flex;gap:22px;align-items:baseline}
-.que-es [data-ejemplo='banda']::before{margin:0}
 .que-es .sin-favor{font-size:14px;margin:22px 0 12px}
 .que-es .contra{font-family:var(--serif);font-size:26px;line-height:1.3;color:var(--acento);max-width:27em;margin:0}
 .que-es [data-que-no-es]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0;line-height:1.5}
@@ -838,8 +843,6 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
  .que-es [data-seccion='entre-conocidos']{grid-template-columns:minmax(0,1fr)}
  .que-es [data-seccion='entre-conocidos']>.video{grid-column:1;grid-row:auto;margin-top:26px}
  .que-es [data-ejemplos]{grid-template-columns:1fr;gap:12px}
- .que-es [data-ejemplo]{min-height:0;padding:20px;display:flex;align-items:baseline;gap:20px}
- .que-es [data-ejemplo]::before{margin:0;flex-shrink:0}
  .que-es .contra{font-size:24px}
  .que-es [data-que-no-es]{grid-template-columns:1fr;gap:12px}
  .que-es [data-no-es]{padding:18px;text-align:left;font-size:24px}
@@ -877,7 +880,7 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 <main id="contenido" tabindex="-1">
 <section class="hoja carnet-ajeno" data-carnet-ajeno data-socio="7" data-entero>
 <header class="carnet-ajeno-frente">
-<p class="ceja">Socio n.º 0007</p>
+<p class="ceja">Carnet n.º 0007</p>
 <h1>Néstor Galíndez</h1>
 <p><span data-camino data-socio="7" data-pasos="1" data-medio="">Se conocen</span></p>
 </header>
@@ -898,7 +901,7 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 <h2 class="cond experiencia-titulo">Su experiencia</h2>
 <div class="experiencia-renglones">
 <p data-lo-avalo data-socio="1">Entró con el aval de <a href="../../carnet/" data-persona="1">Rosario Quiroga</a> <span data-camino data-socio="1" data-pasos="0" data-medio="">Sos vos</span></p>
-<p data-socio-desde data-valor="2026-04">Socio desde abril de 2026</p>
+<p data-socio-desde data-valor="2026-04">En el club desde abril de 2026</p>
 <p data-fue-a data-valor="0">Todavía no fue a ningún encuentro</p>
 <p data-dio data-valor="0">Todavía no dio ningún encuentro</p>
 </div>

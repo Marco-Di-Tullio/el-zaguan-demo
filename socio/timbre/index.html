@@ -583,6 +583,7 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 .grupo-socios span[data-pasos]{display:block;margin:4px 0 0}
 .grupo-sin-planear .grupo-encuentros{font-size:13px;line-height:1.5;opacity:1}
 .grupo-sin-planear .grupo-encuentros li{margin-bottom:7px}
+.grupo-sin-planear .grupo-encuentros small{color:inherit;opacity:.72}
 .grupo-sin-planear .formulario{border-top:1px solid var(--borde-papel);padding-top:20px;margin:0}
 .grupo-sin-planear .formulario>label{font-family:var(--serif);font-size:24px;font-weight:400}
 .grupo-sin-planear .formulario>.boton{margin-top:16px}
@@ -663,6 +664,11 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 .proponer-cuidados>.proponer-casilla{display:flex;align-items:center;gap:10px;margin:18px 0 8px;cursor:pointer;min-height:28px}
 .proponer-casilla input[type=checkbox],.cuidados-socia input[type=checkbox]{display:inline-block;flex:none;width:18px;height:18px;padding:0;margin:0;accent-color:var(--verde)}
 .proponer-casilla+.campo-ayuda{margin:0 0 18px;padding-left:28px}
+.proponer-cuidados .casa-direccion-campo{display:none;margin:0 0 0 28px;padding-top:16px;border-top:1px solid var(--borde-papel)}
+.proponer-cuidados:has(#campo-enCasa:checked) .casa-direccion-campo{display:block}
+.proponer-cuidados .casa-direccion-campo>label{margin-bottom:8px}
+.proponer-cuidados [data-direccion-explica]{font-size:14px;line-height:1.5;margin:0;opacity:1}
+.propuesta-datos [data-direccion-explica]{display:block;font-size:14px;line-height:1.5;margin-top:8px;opacity:1}
 .propuesta-datos>.propuesta-para-quien{grid-column:1/-1}
 .imp-afiche .afiche-para-quien,.imp-solo .afiche-para-quien{font-family:var(--serif);font-size:20px;line-height:1.3;margin-bottom:16px;overflow-wrap:anywhere}
 .pedido .afiche-para-quien{font-family:var(--serif);font-size:20px;line-height:1.35;opacity:1;margin:14px 0 12px;overflow-wrap:anywhere}
@@ -762,20 +768,19 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 .que-es [data-caja]::before{content:"0" attr(data-caja) / "";display:block;font-family:var(--sans);font-size:12px;letter-spacing:.12em;color:var(--rojo);margin-bottom:26px}
 .que-es [data-caja]:not(:last-child)::after{content:"→" / "";position:absolute;right:-19px;top:22px;width:22px;z-index:1;background:var(--acento);color:var(--verde);text-align:center;font:20px/24px var(--sans)}
 .que-es [data-seccion='entre-conocidos']{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:48px}
-.que-es [data-seccion='entre-conocidos']>h2{grid-column:1/-1}
+.que-es [data-seccion='entre-conocidos']>h2{grid-column:1/-1;margin-bottom:12px}
+.que-es .desconocidos-confiables{grid-column:1/-1;font-size:16px;line-height:1.5;margin:0 0 24px}
 .que-es [data-aval-cadena]{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .que-es [data-eslabon]{border:1px solid var(--linea);padding:14px 20px;font-size:13px;line-height:1.5}
 .que-es [data-eslabon]::before{content:attr(data-de) "  →  " attr(data-a) / "";display:block;white-space:pre;font-family:var(--serif);font-size:28px;line-height:1.3;color:var(--acento);margin-bottom:5px}
 .que-es [data-aval-cadena]>li:last-child{border-style:dashed;border-color:var(--acento)}
-.que-es [data-seccion='entre-conocidos']>.video{grid-column:2;grid-row:2/4;align-self:center;margin:0}
+.que-es [data-seccion='entre-conocidos']>.video{grid-column:2;grid-row:3/5;align-self:center;margin:0}
 .que-es [data-aval-confianza]{grid-column:1;font-size:14px;margin:20px 0 0}
-.que-es [data-ejemplos]{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0;padding:0;counter-reset:ejemplo}
-.que-es [data-ejemplo]{counter-increment:ejemplo;min-height:170px;padding:22px;background:var(--papel);color:var(--verde);font-size:16px;line-height:1.6;border-top:3px solid var(--acento)}
-.que-es [data-ejemplo]::before{content:counter(ejemplo,decimal-leading-zero) / "";display:block;font-size:11px;letter-spacing:.12em;margin-bottom:20px;color:var(--rojo)}
+.que-es [data-ejemplos]{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:1fr;gap:16px;margin:0;padding:0;counter-reset:ejemplo}
+.que-es [data-ejemplo]{counter-increment:ejemplo;min-width:0;padding:20px;background:var(--papel);color:var(--verde);font-size:16px;line-height:1.5;border-top:3px solid var(--acento)}
+.que-es [data-ejemplo]::before{content:counter(ejemplo,decimal-leading-zero) / "";display:block;font-size:11px;line-height:1.5;letter-spacing:.12em;margin-bottom:10px;color:var(--rojo)}
 .que-es [data-ejemplo]:nth-child(3n+2){background:#e0c5ab}
 .que-es [data-ejemplo]:nth-child(3n){background:#c9d0b9}
-.que-es [data-ejemplo='banda']{grid-column:1/-1;min-height:0;display:flex;gap:22px;align-items:baseline}
-.que-es [data-ejemplo='banda']::before{margin:0}
 .que-es .sin-favor{font-size:14px;margin:22px 0 12px}
 .que-es .contra{font-family:var(--serif);font-size:26px;line-height:1.3;color:var(--acento);max-width:27em;margin:0}
 .que-es [data-que-no-es]{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0;line-height:1.5}
@@ -838,8 +843,6 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
  .que-es [data-seccion='entre-conocidos']{grid-template-columns:minmax(0,1fr)}
  .que-es [data-seccion='entre-conocidos']>.video{grid-column:1;grid-row:auto;margin-top:26px}
  .que-es [data-ejemplos]{grid-template-columns:1fr;gap:12px}
- .que-es [data-ejemplo]{min-height:0;padding:20px;display:flex;align-items:baseline;gap:20px}
- .que-es [data-ejemplo]::before{margin:0;flex-shrink:0}
  .que-es .contra{font-size:24px}
  .que-es [data-que-no-es]{grid-template-columns:1fr;gap:12px}
  .que-es [data-no-es]{padding:18px;text-align:left;font-size:24px}
@@ -1064,6 +1067,15 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 </div>
 <p class="pie cond"><span>Vie 27 nov · 19 h</span><span class="faltan">Quedan 4</span></p>
 </li>
+<li data-afiche data-encuentro="e-40" data-clase="caminata" data-ciudad="Buenos Aires" data-categoria="caminatas" data-etiquetas="vecinos,barrio,compras" data-tamano="mediano" data-tinta="verde" data-dibujo="filete" class="imp-afiche abre">
+<span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>caminatas</span><span>Buenos Aires</span></p>
+<h3 class="grande"><a class="abre-enlace" href="../encuentros/e-40/" data-tema>El barrio con quien lo conoce de memoria: dónde comprar cada cosa</a></h3>
+<div class="afiche-detalles">
+<p class="linea afiche-zona"><span data-zona>Villa Crespo</span></p>
+<p class="linea" data-etiquetas-lista><span data-etiqueta>vecinos</span> <span data-etiqueta>barrio</span> <span data-etiqueta>compras</span></p>
+</div>
+<p class="pie cond"><span>Sáb 5 dic · 10 h</span><span>Quedan 2</span></p>
+</li>
 <li data-afiche data-encuentro="e-02" data-clase="libros" data-ciudad="Buenos Aires" data-categoria="libros" data-etiquetas="primeras ediciones,poesía,librería,boedo" data-tamano="mediano" data-tinta="verde" data-dibujo="estrella" class="imp-afiche abre">
 <span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>libros</span><span>Buenos Aires</span></p>
 <h3 class="grande"><a class="abre-enlace" href="../encuentros/e-02/" data-tema>Un libro que te quiero contar, en una librería de Boedo</a></h3>
@@ -1126,6 +1138,17 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 <p class="linea">Viene alguien de Buenos Aires</p>
 </div>
 <p class="pie cond"><span>Jue 14 ene · 10 h</span><span>Queda un lugar</span></p>
+</li>
+<li data-afiche data-encuentro="e-39" data-clase="campo" data-ciudad="Bariloche" data-categoria="viajes" data-etiquetas="visita,pesca,lago" data-tamano="chico" data-tinta="azul" data-dibujo="sello" data-visita data-desde="Buenos Aires" data-en-casa class="imp-afiche abre">
+<span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>viajes</span><span>Bariloche</span></p>
+<h3 class="grande"><a class="abre-enlace" href="../encuentros/e-39/" data-tema>Pesca en el lago, con alguien de ahí que da el dato</a></h3>
+<div class="afiche-detalles">
+<p class="linea encuadre-rotulos"><span class="cond encuadre-casa" data-casa-rotulo>En una casa</span></p>
+<p class="linea afiche-zona"><span data-zona>Costa del lago</span></p>
+<p class="linea" data-etiquetas-lista><span data-etiqueta>visita</span> <span data-etiqueta>pesca</span> <span data-etiqueta>lago</span></p>
+<p class="linea">Viene alguien de Buenos Aires</p>
+</div>
+<p class="pie cond"><span>Sáb 13 mar · 9 h</span><span>Quedan 3</span></p>
 </li>
 <li data-afiche data-encuentro="e-07" data-clase="otra" data-ciudad="Bariloche" data-categoria="juegos" data-etiquetas="ajedrez,guitarra criolla,mano a mano" data-tamano="mediano" data-tinta="azul" data-dibujo="sello" class="imp-afiche abre">
 <span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>juegos</span><span>Bariloche</span></p>

@@ -880,6 +880,133 @@ body:has([data-portada]) [data-tengo-llave][data-hundido]{background:var(--verde
 [data-charla-form]>.boton-sec{grid-column:2;min-height:44px;padding:9px 22px}
 [data-charla-cerrada],[data-charla-vacia]{border-top:1px solid var(--linea);padding-top:16px}
 @media(max-width:620px){[data-charla]{margin-top:30px;padding-top:22px}[data-charla-mensaje] [data-texto]{font-size:20px}}
+
+.carnet-red{grid-column:1/-1}
+.carnet-red figure{margin:0 0 28px;background:var(--papel);color:var(--tinta);border:1px solid var(--borde-papel);box-shadow:0 4px 8px #0001;--linea:var(--borde-papel)}
+.mapa-rotulo{display:flex;justify-content:space-between;gap:16px;margin:0 24px;padding:16px 0;border-bottom:1px solid var(--borde-papel);font-size:11px;text-transform:uppercase;letter-spacing:.14em}
+.mapa-rotulo span:last-child{font-family:var(--serif);font-style:italic;text-transform:none;letter-spacing:0;font-size:16px}
+.mapa-desplazamiento{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-color:var(--verde) var(--papel);scrollbar-width:thin}
+.mapa-desplazamiento>svg{display:block;width:600px;min-width:600px;max-width:none;margin:0 auto;color:var(--verde)}
+.mapa-desplazamiento>svg[data-nombres-afuera="title"]{width:760px;min-width:760px}
+.mapa-anillos{stroke-width:.7;stroke-opacity:.3;stroke-dasharray:3 6}
+.mapa-desplazamiento line{stroke-width:.7;stroke-opacity:.24;vector-effect:non-scaling-stroke}
+.mapa-desplazamiento line.mapa-enlace-activo{stroke-opacity:.9;stroke-width:1.2}
+[data-anillo] text{font-family:var(--serif);font-size:18px;paint-order:stroke fill;stroke:var(--papel);stroke-width:5px;stroke-linejoin:round}
+[data-anillo="0"] text{font-style:italic;font-size:20px}
+[data-anillo="0"] circle{fill:var(--verde)}
+[data-anillo="2"]>circle:first-of-type{fill:var(--papel)}
+[data-anillo] .mapa-tocar{fill:transparent;stroke:none;pointer-events:all}
+[data-anillo]:is(:hover,:focus-visible,.mapa-elegido){color:var(--rojo);outline:none}
+[data-anillo]:is(:hover,:focus-visible,.mapa-elegido) .mapa-tocar{stroke:currentColor;stroke-width:1;stroke-dasharray:2 3}
+[data-anillo]:is(:hover,:focus-visible,.mapa-elegido) text{text-decoration:underline;text-underline-offset:3px}
+.carnet-red figure>figcaption{margin:0 24px;padding:16px 0 8px;border-top:1px solid var(--borde-papel);font-size:14px;opacity:1;max-width:42em}
+.mapa-guia{display:block;margin:8px 0 12px;font-size:12px;line-height:1.6;opacity:.75}
+.carnet-red figure :focus-visible{outline-color:var(--rojo)}
+.mapa-detalle{position:relative;margin:0 24px 24px;padding:18px 20px;background:var(--papel-2);border:1px solid var(--borde-papel);border-top:2px solid var(--verde);max-width:42em}
+.mapa-detalle[hidden]{display:none}
+.mapa-cerrar{display:block;margin:0 0 12px auto;padding:6px 0;min-height:36px;background:none;border:0;color:var(--verde);font-size:12px;text-decoration:underline;cursor:pointer}
+.mapa-detalle .renglones li{padding:0;border:0}
+.mapa-detalle span[data-pasos]{display:block;margin:4px 0 0}
+.mapa-detalle .boton{background:var(--verde);color:var(--papel)}
+.mapa-detalle .boton:hover{background:var(--tinta)}
+.mapa-detalle .boton-sec:hover{background:var(--verde);color:var(--papel)}
+.carnet-red>div>div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);column-gap:32px;align-items:start;margin-bottom:32px}
+.carnet-red>div>div>h3:first-child{grid-column:1;grid-row:1}
+.carnet-red>div>div>h3:nth-of-type(2){grid-column:2;grid-row:1}
+.carnet-red>div>div>ul{grid-row:2}
+.carnet-red>div>div>[data-sin-dos-pasos]{grid-column:2;grid-row:2}
+.carnet-red>div>div span[data-pasos]{display:block;margin:4px 0 0}
+.carnet-red>div>div li:target{outline:2px solid var(--acento);outline-offset:8px;scroll-margin-top:24px}
+[data-lista-anillo="2"]>a:first-child{font-family:var(--serif);font-size:23px}
+[data-red-frase]{font-size:15px;line-height:1.6;margin:12px 0}
+[data-red-sumarme]{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:10px 0 0}
+[data-red-presentar]{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px;margin:10px 0 0}
+[data-red-presentar] label{flex:1 1 220px;max-width:100%;margin:0;font-weight:400;font-size:13px}
+[data-red-presentar] select{margin-top:5px}
+[data-red-sumarme]>a{font-size:13px;padding:10px}
+[data-red-presentar] .boton-sec{font-size:13px;padding:10px 14px;text-align:left}
+.carnet-red>.mapa-vacio{border:1px dashed var(--linea);padding:24px;max-width:40em}
+
+/* Presentaciones: una tarjeta para recibir, renglones para escribir. */
+:is(.carnet-te-presentaron,.carnet-presentar,.carnet-pedidos-presentacion,.carnet-varios){border-top:1px solid var(--linea);padding-top:24px}
+:is(.carnet-te-presentaron,.carnet-presentar,.carnet-pedidos-presentacion,.carnet-varios)>h2{font-size:12px;letter-spacing:.14em;line-height:1.5;color:var(--acento);margin-bottom:18px}
+.carnet-presentar h3{font-family:var(--sans);font-size:14px;margin:24px 0 8px}
+[data-te-presentaron]>.renglones{display:grid;gap:16px}
+[data-te-presentaron-item]{background:var(--papel);color:var(--verde);--linea:var(--borde-papel);box-shadow:0 4px 8px #0001}
+[data-te-presentaron] [data-te-presentaron-item]{padding:24px;border:0;font-family:var(--sans);font-size:15px;line-height:1.6;overflow-wrap:anywhere}
+[data-presentacion-linea]{display:block;padding:14px 0 14px 18px;margin:18px 0;border-left:2px solid var(--borde-papel);font-family:var(--serif);font-size:25px;line-height:1.3}
+[data-pretexto]{font-size:14px;line-height:1.6}
+.carnet-te-presentaron form{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0 12px}
+.carnet-te-presentaron form .boton{background:var(--verde);color:var(--papel)}
+.carnet-te-presentaron form .boton:hover{background:var(--tinta)}
+.carnet-te-presentaron form .boton-sec:hover{background:var(--verde);color:var(--papel)}
+[data-te-presentaron-item] :focus-visible{outline-color:var(--rojo)}
+[data-te-presentaron-item]>.nota:last-child{margin:0;font-size:12px}
+:is([data-form-presentar],[data-form-tomar]){display:grid;gap:20px;min-width:0}
+:is([data-form-presentar],[data-form-tomar])>label{margin:0}
+:is([data-form-presentar],[data-form-tomar])>button{justify-self:start;margin:0}
+:is([data-pretexto-opciones],[data-con-opciones]){min-width:0;margin:0;border:1px solid var(--linea);padding:12px 16px}
+:is([data-pretexto-opciones],[data-con-opciones]) legend{font-size:13px;padding:0 6px}
+:is([data-pretexto-opciones],[data-con-opciones]) label:has([type=radio]){display:flex;align-items:center;gap:10px;min-height:44px;font-size:14px;font-weight:400;margin:0;cursor:pointer}
+:is([data-pretexto-opciones],[data-con-opciones]) input[type=radio]{width:18px;height:18px;flex:none;margin:0;padding:0;accent-color:var(--verde)}
+[data-pretexto-opciones]>label:has([name=hacer],[name=encuentro]){margin:8px 0 18px;padding-left:28px}
+@supports selector(:has(*)){
+ [data-pretexto-opciones]:not(:has([value=hacer]:checked))>label:has([name=hacer]),
+ [data-pretexto-opciones]:not(:has([value=encuentro]:checked))>label:has([name=encuentro]),
+ :is([data-form-presentar],[data-form-tomar]):has([name=pretexto][value=""]:checked)>[data-con-opciones]{display:none}
+ .proponer-varios:not(:has([name=somosVarios]:checked)) .proponer-grupo{display:none}
+}
+.carnet-presentar .renglones li,.carnet-pedidos-presentacion .renglones li[data-pedido-presentacion]{font-family:var(--sans);font-size:15px;line-height:1.6}
+[data-pedido-presentacion]>p{margin-bottom:12px}
+[data-tomar-pedido]{margin:12px 0}
+[data-tomar-pedido]>summary{font-size:14px;cursor:pointer;padding:10px 0;text-decoration:underline;text-underline-offset:4px}
+[data-tomar-pedido][open]>summary{margin-bottom:16px}
+[data-form-dejar]{margin-top:18px}
+.carnet-pedir-presentacion{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.carnet-pedir-presentacion form{margin:0;max-width:100%}
+.carnet-pedir-presentacion .boton-sec{font-size:13px;text-align:left}
+.carnet-pedir-presentacion .boton-sec:hover{background:var(--verde);color:var(--papel)}
+
+/* Los que van juntos, anotados al margen de la propuesta. */
+.proponer-varios{min-width:0;margin:24px 0;padding:16px 20px;border:1px solid var(--borde-papel)}
+.proponer-varios legend{font-family:var(--serif);font-size:23px;padding:0 8px}
+.proponer-varios .proponer-casilla{display:flex;align-items:center;gap:10px;min-height:44px;margin:0;cursor:pointer;font-weight:400}
+.proponer-varios [data-somos-varios-explica]{font-size:14px;margin:8px 0 0;padding:0;opacity:1}
+.proponer-grupo{margin-top:18px;padding-top:16px;border-top:1px solid var(--borde-papel);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 20px}
+.proponer-grupo>p{grid-column:1/-1;margin-bottom:4px;opacity:1}
+p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-top:16px;font-size:14px;line-height:1.6;opacity:1}
+.ficha p[data-somos-varios]{border-color:var(--borde-papel)}
+.carnet-varios .renglones li{font-family:var(--sans);font-size:15px;line-height:1.6;padding:16px 0}
+.carnet-varios .renglones .carnet-varios-que{display:block;font-family:var(--serif);font-size:24px;line-height:1.3;margin-bottom:12px}
+.carnet-varios .nota{display:block;margin-top:10px;font-size:13px}
+
+/* Una nota fechada antes de seguir hacia la cartelera. */
+[aria-labelledby="desde-titulo"]{max-width:54em;border-left:1px solid var(--linea);padding:0 0 4px 22px;margin:0 0 32px}
+[aria-labelledby="desde-titulo"]>h2{font-family:var(--serif);font-size:25px;margin:0 0 5px}
+[data-desde-fecha]{font-size:12px;margin:0 0 18px}
+[data-desde-tipo]{font-family:var(--sans);font-size:12px;line-height:1.5;margin:16px 0 4px;font-weight:500}
+[aria-labelledby="desde-titulo"] .renglones li{border:0;font-family:var(--sans);font-size:14px;line-height:1.6;padding:4px 0}
+[data-desde-item]>.nota{font-size:12px;display:inline-block;margin-left:8px}
+[data-desde-mas]{font-size:12px}
+
+.que-es [data-excusa]{font-family:var(--serif);font-size:26px;line-height:1.3;color:var(--acento);margin:-8px 0 24px}
+.que-es [data-que-no-es]{grid-template-columns:repeat(2,minmax(0,1fr))}
+.que-es [data-cuando-hace-falta]{grid-column:1/-1;font-size:15px;margin-top:-10px}
+@media(max-width:620px){
+ .mapa-desplazamiento>svg{width:560px;min-width:560px}
+ .mapa-rotulo{margin-inline:18px}
+ .carnet-red figure>figcaption{margin-inline:18px}
+ .mapa-detalle{margin:0 12px 18px;padding:14px}
+ .carnet-red>div>div{display:block}
+ .carnet-red>div>div>ul{margin-bottom:28px}
+ [data-te-presentaron] [data-te-presentaron-item]{padding:20px}
+ [data-presentacion-linea]{font-size:23px}
+ .proponer-varios{padding:12px 14px}
+ .proponer-grupo{grid-template-columns:1fr}
+ [aria-labelledby="desde-titulo"]{padding-left:16px}
+ [data-desde-item]>.nota{display:block;margin:2px 0 4px}
+ .que-es [data-que-no-es]{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -1010,12 +1137,275 @@ body:has([data-portada]) [data-tengo-llave][data-hundido]{background:var(--verde
 </form>
 </details>
 </section>
+<section class="carnet-te-presentaron" data-te-presentaron>
+<h2 class="cond">Te presentaron</h2>
+
+<p class="nota">Nada para responder.</p>
+</section>
+<section class="carnet-presentar" data-presentar>
+<h2 class="cond">Presentar a dos conocidos</h2>
+<p class="nota">Dos personas que conocés y no se conocen entre sí. A cada una le llega en su carnet; si las dos aceptan, quedan a un paso.</p>
+<form method="get" action="#" class="formulario" data-form-presentar data-muestra="fija">
+<label for="presentar-a">A
+<select id="presentar-a" name="a" required data-campo="a">
+<option value="">Elegí</option>
+<option value="12" data-conocido="12">Agustina Peña</option>
+<option value="5" data-conocido="5">Celeste Arregui</option>
+<option value="7" data-conocido="7">Néstor Galíndez</option>
+</select></label>
+<label for="presentar-b">Y a
+<select id="presentar-b" name="b" required data-campo="b">
+<option value="">Elegí</option>
+<option value="12" data-conocido="12">Agustina Peña</option>
+<option value="5" data-conocido="5">Celeste Arregui</option>
+<option value="7" data-conocido="7">Néstor Galíndez</option>
+</select></label>
+<label for="presentar-linea">Tu línea
+<input id="presentar-linea" name="linea" data-campo="linea" maxlength="140" required placeholder="Viven a tres cuadras y nunca se cruzaron"></label>
+<fieldset data-pretexto-opciones>
+<legend>Un pretexto (si querés)</legend>
+<label><input type="radio" name="pretexto" value="" checked data-campo="pretexto"> Ninguno</label>
+<label><input type="radio" name="pretexto" value="hacer" data-campo="pretexto"> Algo para hacer juntos</label>
+<label for="presentar-hacer">Qué
+<input id="presentar-hacer" name="hacer" data-campo="hacer" maxlength="140" placeholder="Un café en la esquina de siempre"></label>
+<label><input type="radio" name="pretexto" value="encuentro" data-campo="pretexto"> Una juntada que ya existe</label>
+<label for="presentar-encuentro">Cuál
+<select id="presentar-encuentro" name="encuentro" data-campo="encuentro">
+<option value="">Elegí</option>
+<option value="e-03" data-encuentro="e-03">Ajedrez &amp; dados: tarde de juegos &lt;nivel cero&gt;</option>
+<option value="e-06" data-encuentro="e-06">¿Se puede pensar de a muchos sin ganar?</option>
+<option value="e-40" data-encuentro="e-40">El barrio con quien lo conoce de memoria: dónde comprar cada cosa</option>
+<option value="e-33" data-encuentro="e-33">Cartas en armenio, leídas en voz alta</option>
+<option value="e-01" data-encuentro="e-01">La Boca antes del turismo</option>
+<option value="e-02" data-encuentro="e-02">Un libro que te quiero contar, en una librería de Boedo</option>
+<option value="e-35" data-encuentro="e-35">Cartas de familia, entre vecinas</option>
+<option value="e-34" data-encuentro="e-34">Almuerzo de domingo en casa, para seis</option>
+<option value="e-08" data-encuentro="e-08">Tu auto por dentro: carburador y encendido</option>
+<option value="e-36" data-encuentro="e-36">El puerto de La Boca, mano a mano</option>
+<option value="e-11" data-encuentro="e-11">Bandoneón en el bar</option>
+<option value="e-12" data-encuentro="e-12">Esquila en una chacra</option>
+<option value="e-31" data-encuentro="e-31">Bariloche caminada con alguien que vive ahí</option>
+<option value="e-39" data-encuentro="e-39">Pesca en el lago, con alguien de ahí que da el dato</option>
+<option value="e-07" data-encuentro="e-07">Ajedrez por guitarra criolla</option>
+<option value="e-14" data-encuentro="e-14">Mesa de pensar sin querer ganar</option>
+<option value="e-16" data-encuentro="e-16">Caminatas por San Telmo</option>
+<option value="e-17" data-encuentro="e-17">Cocina patagónica en casa</option>
+<option value="e-18" data-encuentro="e-18">Charlas de física</option>
+<option value="e-19" data-encuentro="e-19">Recorridos por librerías de viejo de Avenida de Mayo</option>
+<option value="e-20" data-encuentro="e-20">Juegos de mesa de estrategia</option>
+<option value="e-21" data-encuentro="e-21">Partidas de rol para principiantes</option>
+<option value="e-22" data-encuentro="e-22">Contabilidad para pymes sin miedo</option>
+<option value="e-23" data-encuentro="e-23">Fotografía</option>
+<option value="e-24" data-encuentro="e-24">Caminatas por el cerro Otto contando su historia</option>
+<option value="e-25" data-encuentro="e-25">Bandoneón de cerca</option>
+<option value="e-26" data-encuentro="e-26">Salidas al campo a la chacra de frutas finas</option>
+<option value="e-27" data-encuentro="e-27">Tango por fotografía</option>
+<option value="e-45" data-encuentro="e-45">Aprender a hacer un guiso de olla</option>
+</select></label>
+</fieldset>
+<fieldset data-con-opciones>
+<legend>La juntada, con quién</legend>
+<label><input type="radio" name="con" value="tres" checked data-campo="con"> Con los tres</label>
+<label><input type="radio" name="con" value="dos" data-campo="con"> Solo ellos dos</label>
+</fieldset>
+<button type="submit" class="boton">Presentar</button>
+</form>
+
+</section>
+
 <section class="carnet-acercaron" data-te-acercaron>
 <h2 class="cond">Te acercaron</h2>
 <p class="nota">Todavía no te acercaron nada.</p>
 </section>
+
 <section class="carnet-red" data-red>
 <h2 class="cond">Tu red</h2>
+<div data-mapa-red>
+<figure data-mapa-figura>
+<div class="mapa-rotulo"><span>Entre conocidos</span><span>Desde vos</span></div>
+<div class="mapa-desplazamiento" tabindex="0" role="region" aria-label="Plano de tu red. Podés desplazarlo a los costados.">
+<svg data-mapa viewBox="-330 -330 660 660" width="100%" role="group" aria-labelledby="mapa-titulo mapa-desc" data-nombres-afuera="texto">
+<title id="mapa-titulo">Tu red</title>
+<desc id="mapa-desc">Vos en el centro; alrededor, la gente que conocés; más afuera, la que está a dos pasos, unida a quien te la acerca. La misma gente está en la lista de abajo.</desc>
+<g class="mapa-anillos" fill="none" stroke="currentColor" aria-hidden="true">
+<ellipse cx="0" cy="0" rx="110" ry="112" transform="rotate(-3)"/>
+<ellipse cx="0" cy="0" rx="220" ry="222" transform="rotate(2)"/>
+</g>
+<g data-enlaces>
+<line data-enlace data-de="1" data-a="5" x1="0" y1="0" x2="0" y2="-110" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="1" data-a="7" x1="0" y1="0" x2="95.3" y2="55" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="1" data-a="12" x1="0" y1="0" x2="-95.3" y2="55" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="5" data-a="6" x1="0" y1="-110" x2="0" y2="-220" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="12" data-a="6" x1="-95.3" y1="55" x2="0" y2="-220" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="5" data-a="19" x1="0" y1="-110" x2="102.2" y2="-194.8" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="5" data-a="24" x1="0" y1="-110" x2="181.1" y2="-125" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="12" data-a="24" x1="-95.3" y1="55" x2="181.1" y2="-125" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="5" data-a="43" x1="0" y1="-110" x2="218.4" y2="-26.5" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="12" data-a="43" x1="-95.3" y1="55" x2="218.4" y2="-26.5" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="5" data-a="52" x1="0" y1="-110" x2="205.7" y2="78" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="7" data-a="14" x1="95.3" y1="55" x2="145.9" y2="164.7" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="7" data-a="32" x1="95.3" y1="55" x2="52.6" y2="213.6" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="7" data-a="40" x1="95.3" y1="55" x2="-52.6" y2="213.6" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="12" data-a="9" x1="-95.3" y1="55" x2="-145.9" y2="164.7" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="12" data-a="11" x1="-95.3" y1="55" x2="-205.7" y2="78" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="12" data-a="20" x1="-95.3" y1="55" x2="-218.4" y2="-26.5" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="12" data-a="33" x1="-95.3" y1="55" x2="-181.1" y2="-125" stroke="currentColor" stroke-opacity="0.4"/>
+<line data-enlace data-de="12" data-a="42" x1="-95.3" y1="55" x2="-102.2" y2="-194.8" stroke="currentColor" stroke-opacity="0.4"/>
+</g>
+<g data-nodo data-socio="1" data-anillo="0"><title>Vos, Rosario Quiroga</title><circle cx="0" cy="0" r="9" fill="currentColor"/><text x="0" y="27" text-anchor="middle" font-size="13" fill="currentColor">Vos</text></g>
+<a href="../socios/5/" data-nodo data-socio="5" data-anillo="1" aria-label="Celeste Arregui, que conocés"><title>Celeste Arregui, que conocés</title><circle cx="0" cy="-110" r="5" fill="currentColor"/><circle class="mapa-tocar" cx="0" cy="-110" r="22"/><text x="0" y="-123" text-anchor="middle" font-size="12" fill="currentColor">Celeste</text></a>
+<a href="../socios/7/" data-nodo data-socio="7" data-anillo="1" aria-label="Néstor Galíndez, que conocés"><title>Néstor Galíndez, que conocés</title><circle cx="95.3" cy="55" r="5" fill="currentColor"/><circle class="mapa-tocar" cx="95.3" cy="55" r="22"/><text x="110.9" y="69" text-anchor="start" font-size="12" fill="currentColor">Néstor</text></a>
+<a href="../socios/12/" data-nodo data-socio="12" data-anillo="1" aria-label="Agustina Peña, que conocés"><title>Agustina Peña, que conocés</title><circle cx="-95.3" cy="55" r="5" fill="currentColor"/><circle class="mapa-tocar" cx="-95.3" cy="55" r="22"/><text x="-110.9" y="69" text-anchor="end" font-size="12" fill="currentColor">Agustina</text></a>
+<a href="#red-6" data-nodo data-socio="6" data-anillo="2" data-medio="5,12" aria-label="Beto Ferreyra. Beto busca: “Entender de vinos sin chamuyo”. Por Celeste y Agustina."><title>Beto Ferreyra. Beto busca: “Entender de vinos sin chamuyo”. Por Celeste y Agustina.</title><circle cx="0" cy="-220" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="0" cy="-220" r="22"/><text x="0" y="-233" text-anchor="middle" font-size="12" fill="currentColor">Beto</text></a>
+<a href="#red-19" data-nodo data-socio="19" data-anillo="2" data-medio="5" aria-label="Gonzalo Pereyra. Gonzalo da: “Juegos de mesa de estrategia”. Por Celeste."><title>Gonzalo Pereyra. Gonzalo da: “Juegos de mesa de estrategia”. Por Celeste.</title><circle cx="102.2" cy="-194.8" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="102.2" cy="-194.8" r="22"/><text x="110.6" y="-205.7" text-anchor="start" font-size="12" fill="currentColor">Gonzalo</text></a>
+<a href="#red-24" data-nodo data-socio="24" data-anillo="2" data-medio="5,12" aria-label="Julia Saavedra. Julia va a: “El barrio con quien lo conoce de memoria: dónde comprar cada cosa”. Por Celeste y Agustina."><title>Julia Saavedra. Julia va a: “El barrio con quien lo conoce de memoria: dónde comprar cada cosa”. Por Celeste y Agustina.</title><circle cx="181.1" cy="-125" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="181.1" cy="-125" r="22"/><text x="195.9" y="-130.2" text-anchor="start" font-size="12" fill="currentColor">Julia</text></a>
+<a href="#red-43" data-nodo data-socio="43" data-anillo="2" data-medio="5,12" aria-label="Martín Sarasola. A Martín le gusta dar: “la vuelta de los lagos de Palermo, a las siete y media”. Por Celeste y Agustina."><title>Martín Sarasola. A Martín le gusta dar: “la vuelta de los lagos de Palermo, a las siete y media”. Por Celeste y Agustina.</title><circle cx="218.4" cy="-26.5" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="218.4" cy="-26.5" r="22"/><text x="236.3" y="-23.7" text-anchor="start" font-size="12" fill="currentColor">Martín</text></a>
+<a href="#red-52" data-nodo data-socio="52" data-anillo="2" data-medio="5" aria-label="Brenda Rinaldi. A Brenda le gusta dar: “te explico cómo plantar tomates en el balcón”. Por Celeste."><title>Brenda Rinaldi. A Brenda le gusta dar: “te explico cómo plantar tomates en el balcón”. Por Celeste.</title><circle cx="205.7" cy="78" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="205.7" cy="78" r="22"/><text x="222.5" y="89.4" text-anchor="start" font-size="12" fill="currentColor">Brenda</text></a>
+<a href="#red-14" data-nodo data-socio="14" data-anillo="2" data-medio="7" aria-label="Carla Montenegro. Carla va a: “Bandoneón en el bar”. Por Néstor."><title>Carla Montenegro. Carla va a: “Bandoneón en el bar”. Por Néstor.</title><circle cx="145.9" cy="164.7" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="145.9" cy="164.7" r="22"/><text x="157.8" y="183.2" text-anchor="start" font-size="12" fill="currentColor">Carla</text></a>
+<a href="#red-32" data-nodo data-socio="32" data-anillo="2" data-medio="7" aria-label="Camila Zárate. Camila busca: “pensar de a varios sobre la verdad”. Por Néstor."><title>Camila Zárate. Camila busca: “pensar de a varios sobre la verdad”. Por Néstor.</title><circle cx="52.6" cy="213.6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="52.6" cy="213.6" r="22"/><text x="56.9" y="236.1" text-anchor="middle" font-size="12" fill="currentColor">Camila</text></a>
+<a href="#red-40" data-nodo data-socio="40" data-anillo="2" data-medio="7" aria-label="Abril Navarro. Abril va a: “Bandoneón en el bar”. Por Néstor."><title>Abril Navarro. Abril va a: “Bandoneón en el bar”. Por Néstor.</title><circle cx="-52.6" cy="213.6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-52.6" cy="213.6" r="22"/><text x="-56.9" y="236.1" text-anchor="middle" font-size="12" fill="currentColor">Abril</text></a>
+<a href="#red-9" data-nodo data-socio="9" data-anillo="2" data-medio="12" aria-label="Ramiro Echeverría. Ramiro da: “Hago pedales de guitarra y enseño a soldarlos”. Por Agustina."><title>Ramiro Echeverría. Ramiro da: “Hago pedales de guitarra y enseño a soldarlos”. Por Agustina.</title><circle cx="-145.9" cy="164.7" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-145.9" cy="164.7" r="22"/><text x="-157.8" y="183.2" text-anchor="end" font-size="12" fill="currentColor">Ramiro</text></a>
+<a href="#red-11" data-nodo data-socio="11" data-anillo="2" data-medio="12" aria-label="Ernesto Villalba. Ernesto da: “Muestro primeras ediciones de poesía en mi librería de Boedo”. Por Agustina."><title>Ernesto Villalba. Ernesto da: “Muestro primeras ediciones de poesía en mi librería de Boedo”. Por Agustina.</title><circle cx="-205.7" cy="78" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-205.7" cy="78" r="22"/><text x="-222.5" y="89.4" text-anchor="end" font-size="12" fill="currentColor">Ernesto</text></a>
+<a href="#red-20" data-nodo data-socio="20" data-anillo="2" data-medio="12" aria-label="Natalia Godoy. Natalia busca: “Aprender a modelar arcilla y hacer cerámica”. Por Agustina."><title>Natalia Godoy. Natalia busca: “Aprender a modelar arcilla y hacer cerámica”. Por Agustina.</title><circle cx="-218.4" cy="-26.5" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-218.4" cy="-26.5" r="22"/><text x="-236.3" y="-23.7" text-anchor="end" font-size="12" fill="currentColor">Natalia</text></a>
+<a href="#red-33" data-nodo data-socio="33" data-anillo="2" data-medio="12" aria-label="Ezequiel Santillán. Ezequiel busca: “una mesa de pensar sin debate”. Por Agustina."><title>Ezequiel Santillán. Ezequiel busca: “una mesa de pensar sin debate”. Por Agustina.</title><circle cx="-181.1" cy="-125" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-181.1" cy="-125" r="22"/><text x="-195.9" y="-130.2" text-anchor="end" font-size="12" fill="currentColor">Ezequiel</text></a>
+<a href="#red-42" data-nodo data-socio="42" data-anillo="2" data-medio="12" aria-label="Ana Ibarlucía. A Ana le gusta dar: “contar &quot;Leer despacio&quot;, el libro que más presté”. Por Agustina."><title>Ana Ibarlucía. A Ana le gusta dar: “contar &quot;Leer despacio&quot;, el libro que más presté”. Por Agustina.</title><circle cx="-102.2" cy="-194.8" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-102.2" cy="-194.8" r="22"/><text x="-110.6" y="-205.7" text-anchor="end" font-size="12" fill="currentColor">Ana</text></a>
+</svg>
+</div>
+<div id="mapa-detalle" class="mapa-detalle" role="region" aria-label="Detalle de la persona" tabindex="-1" hidden></div>
+<figcaption class="nota">Tocá a alguien de afuera para ver qué busca o qué le gusta dar, y por quién llegás.
+<span class="mapa-guia">Punto lleno: se conocen. Punto abierto: por alguien más.<br>Si no entra, mové el plano a los costados.</span></figcaption>
+</figure>
+<div data-mapa-lista>
+<h3>La gente que conocés</h3>
+<ul class="renglones"><li data-lista-anillo="1" data-socio="5"><a href="../socios/5/" data-persona="5">Celeste Arregui</a> <span data-camino data-socio="5" data-pasos="1" data-medio="">Se conocen</span></li>
+<li data-lista-anillo="1" data-socio="7"><a href="../socios/7/" data-persona="7">Néstor Galíndez</a> <span data-camino data-socio="7" data-pasos="1" data-medio="">Se conocen</span></li>
+<li data-lista-anillo="1" data-socio="12"><a href="../socios/12/" data-persona="12">Agustina Peña</a> <span data-camino data-socio="12" data-pasos="1" data-medio="">Se conocen</span></li></ul>
+<h3>A dos pasos</h3>
+<ul class="renglones"><li id="red-6" data-lista-anillo="2" data-socio="6" data-medio="5,12"><a href="../socios/6/" data-persona="6">Beto Ferreyra</a> <span data-camino data-socio="6" data-pasos="2" data-medio="5,12">A dos pasos: por Celeste y Agustina</span>
+<p data-red-frase>Beto busca: “Entender de vinos sin chamuyo”. Por Celeste y Agustina.</p>
+<form method="get" action="#" data-red-sumarme data-tipo="propuesta" data-id="p-052" data-muestra="fija"><input type="hidden" name="tipo" value="busco"><button type="submit" class="boton">Sumarme</button> <a href="../propuestas/p-052/">Ver</a></form>
+<form method="get" action="#" data-red-presentar data-a="6" data-medio="5,12" data-muestra="fija"><input type="hidden" name="a" value="6"><label>Pedirle que nos presente a <select name="medio" required>
+<option value="5" data-medio="5">Celeste</option>
+<option value="12" data-medio="12">Agustina</option>
+</select></label> <button type="submit" class="boton-sec">Pedir</button></form>
+</li>
+<li id="red-19" data-lista-anillo="2" data-socio="19" data-medio="5"><a href="../socios/19/" data-persona="19">Gonzalo Pereyra</a> <span data-camino data-socio="19" data-pasos="2" data-medio="5">Por Celeste, que avalaste</span>
+<p data-red-frase>Gonzalo da: “Juegos de mesa de estrategia”. Por Celeste.</p>
+<form method="get" action="#" data-red-sumarme data-tipo="encuentro" data-id="e-20" data-muestra="fija"><button type="submit" class="boton">Sumarme</button> <a href="../encuentros/e-20/">Ver</a></form>
+<form method="get" action="#" data-red-presentar data-a="19" data-medio="5" data-muestra="fija"><input type="hidden" name="a" value="19"><input type="hidden" name="medio" value="5"><button type="submit" class="boton-sec">Pedirle a Celeste que nos presente</button></form>
+</li>
+<li id="red-24" data-lista-anillo="2" data-socio="24" data-medio="5,12"><a href="../socios/24/" data-persona="24">Julia Saavedra</a> <span data-camino data-socio="24" data-pasos="2" data-medio="5,12">A dos pasos: por Celeste y Agustina</span>
+<p data-red-frase>Julia va a: “El barrio con quien lo conoce de memoria: dónde comprar cada cosa”. Por Celeste y Agustina.</p>
+<form method="get" action="#" data-red-sumarme data-tipo="encuentro" data-id="e-40" data-muestra="fija"><button type="submit" class="boton">Sumarme</button> <a href="../encuentros/e-40/">Ver</a></form>
+<form method="get" action="#" data-red-presentar data-a="24" data-medio="5,12" data-muestra="fija"><input type="hidden" name="a" value="24"><label>Pedirle que nos presente a <select name="medio" required>
+<option value="5" data-medio="5">Celeste</option>
+<option value="12" data-medio="12">Agustina</option>
+</select></label> <button type="submit" class="boton-sec">Pedir</button></form>
+</li>
+<li id="red-43" data-lista-anillo="2" data-socio="43" data-medio="5,12"><a href="../socios/43/" data-persona="43">Martín Sarasola</a> <span data-camino data-socio="43" data-pasos="2" data-medio="5,12">A dos pasos: por Celeste y Agustina</span>
+<p data-red-frase>A Martín le gusta dar: “la vuelta de los lagos de Palermo, a las siete y media”. Por Celeste y Agustina.</p>
+
+<form method="get" action="#" data-red-presentar data-a="43" data-medio="5,12" data-muestra="fija"><input type="hidden" name="a" value="43"><label>Pedirle que nos presente a <select name="medio" required>
+<option value="5" data-medio="5">Celeste</option>
+<option value="12" data-medio="12">Agustina</option>
+</select></label> <button type="submit" class="boton-sec">Pedir</button></form>
+</li>
+<li id="red-52" data-lista-anillo="2" data-socio="52" data-medio="5"><a href="../socios/52/" data-persona="52">Brenda Rinaldi</a> <span data-camino data-socio="52" data-pasos="2" data-medio="5">Por Celeste, que avalaste</span>
+<p data-red-frase>A Brenda le gusta dar: “te explico cómo plantar tomates en el balcón”. Por Celeste.</p>
+
+<form method="get" action="#" data-red-presentar data-a="52" data-medio="5" data-muestra="fija"><input type="hidden" name="a" value="52"><input type="hidden" name="medio" value="5"><button type="submit" class="boton-sec">Pedirle a Celeste que nos presente</button></form>
+</li>
+<li id="red-14" data-lista-anillo="2" data-socio="14" data-medio="7"><a href="../socios/14/" data-persona="14">Carla Montenegro</a> <span data-camino data-socio="14" data-pasos="2" data-medio="7">Por Néstor, que avalaste</span>
+<p data-red-frase>Carla va a: “Bandoneón en el bar”. Por Néstor.</p>
+<form method="get" action="#" data-red-sumarme data-tipo="encuentro" data-id="e-11" data-muestra="fija"><button type="submit" class="boton">Sumarme</button> <a href="../encuentros/e-11/">Ver</a></form>
+<form method="get" action="#" data-red-presentar data-a="14" data-medio="7" data-muestra="fija"><input type="hidden" name="a" value="14"><input type="hidden" name="medio" value="7"><button type="submit" class="boton-sec">Pedirle a Néstor que nos presente</button></form>
+</li>
+<li id="red-32" data-lista-anillo="2" data-socio="32" data-medio="7"><a href="../socios/32/" data-persona="32">Camila Zárate</a> <span data-camino data-socio="32" data-pasos="2" data-medio="7">Por Néstor, que avalaste</span>
+<p data-red-frase>Camila busca: “pensar de a varios sobre la verdad”. Por Néstor.</p>
+
+<form method="get" action="#" data-red-presentar data-a="32" data-medio="7" data-muestra="fija"><input type="hidden" name="a" value="32"><input type="hidden" name="medio" value="7"><button type="submit" class="boton-sec">Pedirle a Néstor que nos presente</button></form>
+</li>
+<li id="red-40" data-lista-anillo="2" data-socio="40" data-medio="7"><a href="../socios/40/" data-persona="40">Abril Navarro</a> <span data-camino data-socio="40" data-pasos="2" data-medio="7">Por Néstor, que avalaste</span>
+<p data-red-frase>Abril va a: “Bandoneón en el bar”. Por Néstor.</p>
+<form method="get" action="#" data-red-sumarme data-tipo="encuentro" data-id="e-11" data-muestra="fija"><button type="submit" class="boton">Sumarme</button> <a href="../encuentros/e-11/">Ver</a></form>
+<form method="get" action="#" data-red-presentar data-a="40" data-medio="7" data-muestra="fija"><input type="hidden" name="a" value="40"><input type="hidden" name="medio" value="7"><button type="submit" class="boton-sec">Pedirle a Néstor que nos presente</button></form>
+</li>
+<li id="red-9" data-lista-anillo="2" data-socio="9" data-medio="12"><a href="../socios/9/" data-persona="9">Ramiro Echeverría</a> <span data-camino data-socio="9" data-pasos="2" data-medio="12">Por Agustina, que avalaste</span>
+<p data-red-frase>Ramiro da: “Hago pedales de guitarra y enseño a soldarlos”. Por Agustina.</p>
+<form method="get" action="#" data-red-sumarme data-tipo="propuesta" data-id="p-053" data-muestra="fija"><input type="hidden" name="tipo" value="busco"><button type="submit" class="boton">Sumarme</button> <a href="../propuestas/p-053/">Ver</a></form>
+<form method="get" action="#" data-red-presentar data-a="9" data-medio="12" data-muestra="fija"><input type="hidden" name="a" value="9"><input type="hidden" name="medio" value="12"><button type="submit" class="boton-sec">Pedirle a Agustina que nos presente</button></form>
+</li>
+<li id="red-11" data-lista-anillo="2" data-socio="11" data-medio="12"><a href="../socios/11/" data-persona="11">Ernesto Villalba</a> <span data-camino data-socio="11" data-pasos="2" data-medio="12">Por Agustina, que avalaste</span>
+<p data-red-frase>Ernesto da: “Muestro primeras ediciones de poesía en mi librería de Boedo”. Por Agustina.</p>
+<form method="get" action="#" data-red-sumarme data-tipo="propuesta" data-id="p-026" data-muestra="fija"><input type="hidden" name="tipo" value="busco"><button type="submit" class="boton">Sumarme</button> <a href="../propuestas/p-026/">Ver</a></form>
+<form method="get" action="#" data-red-presentar data-a="11" data-medio="12" data-muestra="fija"><input type="hidden" name="a" value="11"><input type="hidden" name="medio" value="12"><button type="submit" class="boton-sec">Pedirle a Agustina que nos presente</button></form>
+</li>
+<li id="red-20" data-lista-anillo="2" data-socio="20" data-medio="12"><a href="../socios/20/" data-persona="20">Natalia Godoy</a> <span data-camino data-socio="20" data-pasos="2" data-medio="12">Por Agustina, que avalaste</span>
+<p data-red-frase>Natalia busca: “Aprender a modelar arcilla y hacer cerámica”. Por Agustina.</p>
+<form method="get" action="#" data-red-sumarme data-tipo="propuesta" data-id="p-070" data-muestra="fija"><input type="hidden" name="tipo" value="busco"><button type="submit" class="boton">Sumarme</button> <a href="../propuestas/p-070/">Ver</a></form>
+<form method="get" action="#" data-red-presentar data-a="20" data-medio="12" data-muestra="fija"><input type="hidden" name="a" value="20"><input type="hidden" name="medio" value="12"><button type="submit" class="boton-sec">Pedirle a Agustina que nos presente</button></form>
+</li>
+<li id="red-33" data-lista-anillo="2" data-socio="33" data-medio="12"><a href="../socios/33/" data-persona="33">Ezequiel Santillán</a> <span data-camino data-socio="33" data-pasos="2" data-medio="12">Por Agustina, que avalaste</span>
+<p data-red-frase>Ezequiel busca: “una mesa de pensar sin debate”. Por Agustina.</p>
+
+<form method="get" action="#" data-red-presentar data-a="33" data-medio="12" data-muestra="fija"><input type="hidden" name="a" value="33"><input type="hidden" name="medio" value="12"><button type="submit" class="boton-sec">Pedirle a Agustina que nos presente</button></form>
+</li>
+<li id="red-42" data-lista-anillo="2" data-socio="42" data-medio="12"><a href="../socios/42/" data-persona="42">Ana Ibarlucía</a> <span data-camino data-socio="42" data-pasos="2" data-medio="12">Por Agustina, que avalaste</span>
+<p data-red-frase>A Ana le gusta dar: “contar &quot;Leer despacio&quot;, el libro que más presté”. Por Agustina.</p>
+
+<form method="get" action="#" data-red-presentar data-a="42" data-medio="12" data-muestra="fija"><input type="hidden" name="a" value="42"><input type="hidden" name="medio" value="12"><button type="submit" class="boton-sec">Pedirle a Agustina que nos presente</button></form>
+</li></ul>
+</div>
+</div><script>
+(() => {
+  const raiz = document.querySelector('[data-mapa-red]');
+  if (!raiz) return;
+  const plano = raiz.querySelector('[data-mapa]');
+  const caja = raiz.querySelector('.mapa-desplazamiento');
+  const detalle = raiz.querySelector('.mapa-detalle');
+  let elegido;
+  const centrar = () => { caja.scrollLeft = (caja.scrollWidth - caja.clientWidth) / 2; };
+  centrar();
+  const cerrar = () => {
+    detalle.hidden = true;
+    detalle.replaceChildren();
+    plano.querySelectorAll('.mapa-elegido,.mapa-enlace-activo').forEach(el => el.classList.remove('mapa-elegido', 'mapa-enlace-activo'));
+    if (elegido) { elegido.setAttribute('aria-expanded', 'false'); elegido.focus(); }
+  };
+  plano.querySelectorAll('a[data-anillo="2"]').forEach(nodo => {
+    nodo.setAttribute('aria-controls', 'mapa-detalle');
+    nodo.setAttribute('aria-expanded', 'false');
+    nodo.addEventListener('click', event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) return;
+      const fila = document.getElementById(nodo.getAttribute('href').slice(1));
+      if (!fila) return;
+      event.preventDefault();
+      cerrar();
+      elegido = nodo;
+      nodo.classList.add('mapa-elegido');
+      nodo.setAttribute('aria-expanded', 'true');
+      plano.querySelectorAll('[data-enlace]').forEach(linea => {
+        if (linea.getAttribute('data-a') === nodo.getAttribute('data-socio')) linea.classList.add('mapa-enlace-activo');
+      });
+      const copia = fila.cloneNode(true);
+      copia.removeAttribute('id');
+      const lista = document.createElement('ul');
+      lista.className = 'renglones';
+      lista.append(copia);
+      const boton = document.createElement('button');
+      boton.type = 'button';
+      boton.className = 'mapa-cerrar';
+      boton.textContent = 'Cerrar detalle';
+      boton.addEventListener('click', cerrar);
+      detalle.append(boton, lista);
+      detalle.hidden = false;
+      detalle.focus({ preventScroll: true });
+      detalle.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+    });
+  });
+  detalle.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); cerrar(); } });
+})();
+</script>
 <p data-sin-aval>Entraste sin aval.</p>
 <h3>A quién avalaste</h3>
 <ul class="renglones"><li data-avale data-socio="5" data-encuentros="1"><a href="../socios/5/" data-persona="5">Celeste Arregui</a> <span data-camino data-socio="5" data-pasos="1" data-medio="">Se conocen</span> <span class="nota">fue a 1 encuentro</span></li>
@@ -1023,6 +1413,7 @@ body:has([data-portada]) [data-tengo-llave][data-hundido]{background:var(--verde
 <li data-avale data-socio="12" data-encuentros="2"><a href="../socios/12/" data-persona="12">Agustina Peña</a> <span data-camino data-socio="12" data-pasos="1" data-medio="">Se conocen</span> <span class="nota">fue a 2 encuentros</span></li></ul>
 <h3>A quién conociste en encuentros</h3>
 <p class="nota">Todavía nadie. Cada encuentro que se cierra suma gente.</p>
+
 </section>
 
 <section class="carnet-avales">

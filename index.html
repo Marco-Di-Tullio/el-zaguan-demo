@@ -1374,6 +1374,35 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 @media (prefers-reduced-motion:reduce){[data-sello-cae] svg{opacity:1;animation:none}}
 .mapa-mas{margin:14px 0 0;font-size:14px}
 .mapa-mas a{color:var(--verde);text-underline-offset:3px}
+
+/* 2026-11-24: la calle, con la puerta en línea fina. Sin placa ni timbre. */
+.calle{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:96px;align-items:center;min-height:520px;padding:24px 0}
+.calle-pregunta{font-size:clamp(32px,3.2vw,42px);line-height:1.13;letter-spacing:-.025em;margin:0 0 28px;text-wrap:pretty}
+.calle [data-frase]{font-family:var(--serif);font-size:clamp(32px,3.2vw,42px);line-height:1.13;letter-spacing:-.025em;margin:0 0 20px;color:var(--acento);text-wrap:pretty}
+.calle [data-frase-segunda]{font-size:16px;line-height:1.6;max-width:32em;margin:0;color:var(--papel)}
+.calle-puerta{display:block;width:210px;margin-right:24px;color:var(--papel);text-decoration:none;text-align:center;transition:color .25s}
+.calle-puerta:hover,.calle-puerta:focus-visible{color:var(--acento)}
+.calle-puerta:focus-visible{outline:1px solid var(--acento);outline-offset:14px}
+.puerta-linea{display:block;width:100%;height:auto;overflow:visible}
+.puerta-linea [data-luz]{fill:var(--acento);opacity:0;transition:opacity .3s}
+.calle-puerta:hover [data-luz],.calle-puerta:focus-visible [data-luz]{opacity:.1}
+.puerta-linea [data-umbral]{fill:none;stroke:var(--acento);stroke-width:1.4;stroke-linecap:round}
+.puerta-linea [data-picaporte]{fill:var(--acento);stroke:none}
+.puerta-linea [data-hoja]{transform-box:fill-box;transform-origin:right center;transition:transform .3s}
+.calle-puerta:hover [data-hoja],.calle-puerta:focus-visible [data-hoja]{transform:scaleX(.94)}
+.calle[data-abriendo] [data-hoja]{animation:abrir-linea var(--puerta-ms) cubic-bezier(.22,.65,.24,1) forwards}
+.calle[data-abriendo] [data-luz]{opacity:.28;transition:opacity var(--puerta-ms)}
+@keyframes abrir-linea{to{transform:scaleX(.16)}}
+.calle-pasar{display:block;margin-top:18px;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--acento)}
+@media (max-width:900px){.calle{column-gap:48px}.calle-puerta{width:170px;margin-right:0}}
+@media (max-width:720px){
+ .calle{grid-template-columns:minmax(0,1fr);row-gap:36px;min-height:0;padding:0 0 24px}
+ .calle-pregunta,.calle [data-frase]{font-size:29px;line-height:1.12}
+ .calle-pregunta{margin-bottom:20px}
+ .calle [data-frase-segunda]{font-size:14px;line-height:1.5}
+ .calle-puerta{width:132px;justify-self:center}
+}
+@media (prefers-reduced-motion:reduce){.calle[data-abriendo] [data-hoja]{animation:none}.puerta-linea [data-hoja]{transition:none}}
 </style>
 </head>
 <body>
@@ -1384,63 +1413,38 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 <nav class="imp-nav" aria-label="El Zaguán" data-nav-visitante><a href="entrar/" data-tengo-llave aria-label="Entrar como socio">Tengo llave</a></nav>
 </header>
 <main id="contenido" tabindex="-1">
-<section class="portada" data-portada data-escena-puerta data-calle style="--puerta-ms:600ms">
-<div class="portada-texto">
-<h1 class="portada-pregunta" data-orden="1" data-pregunta>¿Cuánta gente interesante te cruzás y no vas a conocer nunca?</h1>
+<section class="calle" data-portada data-escena-puerta data-calle style="--puerta-ms:600ms">
+<div class="calle-texto">
+<h1 class="calle-pregunta" data-orden="1" data-pregunta>¿Cuánta gente interesante te cruzás y no vas a conocer nunca?</h1>
 <div data-explicacion data-orden="2">
 <div data-frase-bloque><p data-frase>Vecinos y amigos de amigos que se juntan a compartir lo que saben hacer.</p>
-<p data-frase-segunda>En persona, y nadie cobra por lo que comparte. Se entra por el aval de un socio.</p></div>
+<p data-frase-segunda>En persona, y nadie cobra por lo que comparte. Se entra de la mano de un socio.</p></div>
 </div>
-<nav class="portada-puertas" aria-label="Entrar al club" data-orden="3" data-puertas>
-<div class="placa" data-placa>
-<p data-nombre>El Zaguán</p>
-<a class="timbre-boton" aria-label="Tocar timbre" href="zaguan/" data-puerta="timbre" data-timbre-boton>Tocar timbre</a>
 </div>
-</nav>
-</div>
-<svg class="puerta-dibujo" data-puerta-dibujo data-orden="4" viewBox="0 0 220 340" aria-hidden="true" focusable="false">
-<defs>
-<linearGradient id="pz-moldura" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3b5a4d"/><stop offset=".5" stop-color="#1c362d"/><stop offset="1" stop-color="#0b1a15"/></linearGradient>
-<linearGradient id="pz-hoja" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#234438"/><stop offset=".55" stop-color="#1a352b"/><stop offset="1" stop-color="#10241d"/></linearGradient>
-<linearGradient id="pz-tablero" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0c211a"/><stop offset=".3" stop-color="#19372c"/><stop offset="1" stop-color="#254638"/></linearGradient>
-<linearGradient id="pz-filete" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#72816b"/><stop offset=".22" stop-color="#395b49"/><stop offset=".6" stop-color="#274534"/><stop offset="1" stop-color="#081811"/></linearGradient>
-<radialGradient id="pz-luz" cx=".5" cy=".35" r=".8"><stop offset="0" stop-color="#f4d58f"/><stop offset=".6" stop-color="#c89a4e"/><stop offset="1" stop-color="#7a5a2a"/></radialGradient>
-<radialGradient id="pz-bronce" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#f1d08a"/><stop offset=".55" stop-color="#b98a43"/><stop offset="1" stop-color="#6e4f22"/></radialGradient>
-<linearGradient id="pz-sombra-vano" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset=".18" stop-color="#000" stop-opacity="0"/></linearGradient>
-<filter id="pz-sombra" x="-10%" y="-10%" width="130%" height="130%"><feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#000" flood-opacity=".18"/></filter>
-</defs>
-<rect data-moldura x="0" y="0" width="220" height="334" rx="4" fill="url(#pz-moldura)" filter="url(#pz-sombra)"/>
-<rect data-marco x="10" y="10" width="200" height="318" rx="3"/>
-<path d="M4 330 V4 H216" fill="none" stroke="#8e9678" stroke-opacity=".45"/>
-<path d="M216 4 V330" fill="none" stroke="#19382d" stroke-width="2"/>
-<path data-bisel="luz" d="M10 328 V10 H210" fill="none" stroke="#5f7d6f" stroke-width="2"/>
-<path data-bisel="sombra" d="M210 10 V328 H10" fill="none" stroke="#19382d" stroke-width="2"/>
-<rect data-adentro x="24" y="24" width="172" height="304"/>
-<rect data-luz x="24" y="24" width="172" height="304" fill="url(#pz-luz)" opacity=".85"/>
-<rect data-sombra x="24" y="24" width="172" height="304" fill="url(#pz-sombra-vano)"/>
-<g data-hoja>
-<rect data-hoja-fondo x="24" y="24" width="172" height="304"/>
-<rect data-hoja-veta x="24" y="24" width="172" height="304" fill="url(#pz-hoja)" opacity=".9"/>
-<path d="M29 324 V29 H191" fill="none" stroke="#76866c" stroke-opacity=".35"/>
-<path d="M191 29 V324" fill="none" stroke="#071a12" stroke-opacity=".8"/>
-<rect x="37" y="39" width="146" height="122" rx="2" fill="url(#pz-filete)"/>
-<rect data-tablero x="42" y="44" width="136" height="112" rx="2"/>
-<path data-bisel="luz" d="M42 156 V44 H178" fill="none" stroke="#4d6e60" stroke-width="2"/>
-<path data-bisel="sombra" d="M178 44 V156 H42" fill="none" stroke="#19382d" stroke-width="2"/>
-<rect x="37" y="173" width="146" height="142" rx="2" fill="url(#pz-filete)"/>
-<rect data-tablero x="42" y="178" width="136" height="132" rx="2"/>
-<path data-bisel="luz" d="M42 310 V178 H178" fill="none" stroke="#4d6e60" stroke-width="2"/>
-<path data-bisel="sombra" d="M178 178 V310 H42" fill="none" stroke="#19382d" stroke-width="2"/>
-<path d="M37 165 H160 M37 168 H160" fill="none" stroke="#738166" stroke-opacity=".3"/>
-<rect x="163" y="158" width="16" height="44" rx="7" fill="url(#pz-bronce)" stroke="#6e4f22"/>
-<rect data-bocallave x="168" y="186" width="6" height="12" rx="3" fill="#0b1a15"/>
-<circle data-picaporte cx="171" cy="172" r="8"/>
-<circle data-picaporte-brillo cx="171" cy="172" r="8" fill="url(#pz-bronce)"/>
-<path d="M166 170 A5 5 0 0 1 172 167" fill="none" stroke="#f4e0ad" stroke-linecap="round" stroke-opacity=".75"/>
-<path d="M25 67 V84 M25 263 V280" fill="none" stroke="#a88e5e" stroke-width="3"/>
+<a class="calle-puerta" href="zaguan/" data-puerta="timbre" data-orden="3" data-pasar aria-label="Pasar al zaguán">
+<svg class="puerta-linea" data-puerta-dibujo viewBox="0 0 220 344" role="img" aria-hidden="true" focusable="false">
+<rect data-luz x="110" y="112" width="74" height="220"/>
+<g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+<path data-arco d="M24 332 V112 A86 86 0 0 1 196 112 V332"/>
+<path d="M36 332 V112 A74 74 0 0 1 184 112 V332"/>
+<path data-imposta d="M36 112 H184"/>
+<path data-abanico d="M110 112 V38 M110 112 L58 60 M110 112 L162 60"/>
+<g data-hoja-fija>
+<rect x="36" y="112" width="74" height="220"/>
+<rect x="48" y="126" width="50" height="82"/>
+<rect x="48" y="222" width="50" height="96"/>
 </g>
-<rect data-umbral x="4" y="326" width="212" height="10" rx="2" fill="url(#pz-bronce)" filter="url(#pz-sombra)"/>
+<g data-hoja>
+<rect x="110" y="112" width="74" height="220"/>
+<rect x="122" y="126" width="50" height="82"/>
+<rect x="122" y="222" width="50" height="96"/>
+<circle data-picaporte cx="118" cy="226" r="2.6"/>
+</g>
+</g>
+<path data-umbral d="M8 334 H212"/>
 </svg>
+<span class="calle-pasar" aria-hidden="true">Pasar</span>
+</a>
 </section>
 <script>
 (function () {

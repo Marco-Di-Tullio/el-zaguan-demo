@@ -1403,6 +1403,20 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
  .calle-puerta{width:132px;justify-self:center}
 }
 @media (prefers-reduced-motion:reduce){.calle[data-abriendo] [data-hoja]{animation:none}.puerta-linea [data-hoja]{transition:none}}
+
+/* 2026-11-24: Historias en grilla, cada una con su caso. */
+.videos{max-width:none}
+.videos-bajada{font-family:var(--serif);font-size:24px;line-height:1.3;color:var(--acento);margin:0 0 36px;max-width:30em}
+.videos-lista{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 28px;align-items:start}
+.videos-lista>li{margin:0;display:flex;flex-direction:column}
+.video-caso{order:-1;margin:0 0 10px;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acento);min-height:2.6em}
+.videos-lista .video{padding:10px}
+.videos-lista .video-titulo{font-size:21px;margin:2px 2px 10px;gap:10px}
+.videos-lista .video figcaption{font-size:13px;line-height:1.45;margin-top:10px;padding-top:9px}
+/* En grilla, la salida repetida debajo de cada historia sobra: la navegación ya está arriba. */
+.videos-lista>li>p:last-child{display:none}
+@media (max-width:1000px){.videos-lista{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.videos-lista{grid-template-columns:minmax(0,1fr);gap:30px}.videos-bajada{font-size:20px;margin-bottom:26px}.video-caso{min-height:0}}
 </style>
 </head>
 <body>
@@ -1426,68 +1440,80 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 <main id="contenido" tabindex="-1">
 <section class="hoja videos" data-videos-pagina data-historias-pagina>
 <h1>Historias</h1>
-<ol class="videos-lista">
-<li data-video-item="01-el-amigo-de-ana"><figure class="video" data-video="01-el-amigo-de-ana" data-video-numero="1" data-video-titulo="El amigo de Ana">
+<p class="videos-bajada" data-historias-bajada>Cada historia es una excusa distinta. Buscá la tuya.</p>
+<ol class="videos-lista" data-videos-grilla>
+<li data-video-item="01-el-amigo-de-ana"><p class="video-caso" data-video-caso>Cuando lo ves siempre y nunca hablaron</p>
+<figure class="video" data-video="01-el-amigo-de-ana" data-video-numero="1" data-video-titulo="El amigo de Ana">
 <h2 class="video-titulo">El amigo de Ana</h2>
 <video controls preload="none" playsinline poster="../../videos/01-el-amigo-de-ana.jpg" aria-label="El amigo de Ana"><source src="../../videos/01-el-amigo-de-ana.mp4" type="video/mp4"></video>
 <figcaption data-video-linea>Cuatro cumpleaños sin hablarse. Ahora corren los martes.</figcaption>
 </figure>
 <p class="historia-salida" data-historia-salida><a href="../zaguan/" data-volver-zaguan>Volver al zaguán</a> <a href="../" data-ir-cartelera>Ir a la cartelera</a></p></li>
-<li data-video-item="02-la-idea"><figure class="video" data-video="02-la-idea" data-video-numero="2" data-video-titulo="La idea">
+<li data-video-item="02-la-idea"><p class="video-caso" data-video-caso>De qué se trata</p>
+<figure class="video" data-video="02-la-idea" data-video-numero="2" data-video-titulo="La idea">
 <h2 class="video-titulo">La idea</h2>
 <video controls preload="none" playsinline poster="../../videos/02-la-idea.jpg" aria-label="La idea"><source src="../../videos/02-la-idea.mp4" type="video/mp4"></video>
-<figcaption data-video-linea>Casi siempre están a un amigo de distancia. Falta una excusa.</figcaption>
+<figcaption data-video-linea>Algunos están a un amigo de distancia. Falta una excusa.</figcaption>
 </figure>
 <p class="historia-salida" data-historia-salida><a href="../zaguan/" data-volver-zaguan>Volver al zaguán</a> <a href="../" data-ir-cartelera>Ir a la cartelera</a></p></li>
-<li data-video-item="03-la-mesa"><figure class="video" data-video="03-la-mesa" data-video-numero="3" data-video-titulo="La mesa">
+<li data-video-item="03-la-mesa"><p class="video-caso" data-video-caso>Cuando sobra lugar en la mesa</p>
+<figure class="video" data-video="03-la-mesa" data-video-numero="3" data-video-titulo="La mesa">
 <h2 class="video-titulo">La mesa</h2>
 <video controls preload="none" playsinline poster="../../videos/03-la-mesa.jpg" aria-label="La mesa"><source src="../../videos/03-la-mesa.mp4" type="video/mp4"></video>
 <figcaption data-video-linea>Rosa cocina para seis desde 1981. En la mesa queda un lugar.</figcaption>
 </figure>
 <p class="historia-salida" data-historia-salida><a href="../zaguan/" data-volver-zaguan>Volver al zaguán</a> <a href="../" data-ir-cartelera>Ir a la cartelera</a></p></li>
-<li data-video-item="04-la-epoca"><figure class="video" data-video="04-la-epoca" data-video-numero="4" data-video-titulo="La época">
+<li data-video-item="04-la-epoca"><p class="video-caso" data-video-caso>Por qué ahora</p>
+<figure class="video" data-video="04-la-epoca" data-video-numero="4" data-video-titulo="La época">
 <h2 class="video-titulo">La época</h2>
 <video controls preload="none" playsinline poster="../../videos/04-la-epoca.jpg" aria-label="La época"><source src="../../videos/04-la-epoca.mp4" type="video/mp4"></video>
 <figcaption data-video-linea>Hoy todo te contesta. Un vecino que te abre el capó, no.</figcaption>
 </figure>
 <p class="historia-salida" data-historia-salida><a href="../zaguan/" data-volver-zaguan>Volver al zaguán</a> <a href="../" data-ir-cartelera>Ir a la cartelera</a></p></li>
-<li data-video-item="05-el-partido"><figure class="video" data-video="05-el-partido" data-video-numero="5" data-video-titulo="El partido">
+<li data-video-item="05-el-partido"><p class="video-caso" data-video-caso>Cuando tus amigos no son de eso</p>
+<figure class="video" data-video="05-el-partido" data-video-numero="5" data-video-titulo="El partido">
 <h2 class="video-titulo">El partido</h2>
 <video controls preload="none" playsinline poster="../../videos/05-el-partido.jpg" aria-label="El partido"><source src="../../videos/05-el-partido.mp4" type="video/mp4"></video>
 <figcaption data-video-linea>Dani miraba los partidos solo. Hugo tenía lugar en el sillón.</figcaption>
 </figure>
 <p class="historia-salida" data-historia-salida><a href="../zaguan/" data-volver-zaguan>Volver al zaguán</a> <a href="../" data-ir-cartelera>Ir a la cartelera</a></p></li>
-<li data-video-item="06-el-que-da"><figure class="video" data-video="06-el-que-da" data-video-numero="6" data-video-titulo="El que da">
+<li data-video-item="06-el-que-da"><p class="video-caso" data-video-caso>Cuando sabés algo y nadie pregunta</p>
+<figure class="video" data-video="06-el-que-da" data-video-numero="6" data-video-titulo="El que da">
 <h2 class="video-titulo">El que da</h2>
 <video controls preload="none" playsinline poster="../../videos/06-el-que-da.jpg" aria-label="El que da"><source src="../../videos/06-el-que-da.mp4" type="video/mp4"></video>
 <figcaption data-video-linea>Aurelio fue tipógrafo de un diario cuarenta y un años. Un jueves les enseñó a tres.</figcaption>
 </figure>
 <p class="historia-salida" data-historia-salida><a href="../zaguan/" data-volver-zaguan>Volver al zaguán</a> <a href="../" data-ir-cartelera>Ir a la cartelera</a></p></li>
-<li data-video-item="07-la-visita"><figure class="video" data-video="07-la-visita" data-video-numero="7" data-video-titulo="La visita">
+<li data-video-item="07-la-visita"><p class="video-caso" data-video-caso>Cuando ningún amigo puede</p>
+<figure class="video" data-video="07-la-visita" data-video-numero="7" data-video-titulo="La visita">
 <h2 class="video-titulo">La visita</h2>
 <video controls preload="none" playsinline poster="../../videos/07-la-visita.jpg" aria-label="La visita"><source src="../../videos/07-la-visita.mp4" type="video/mp4"></video>
 <figcaption data-video-linea>Ninguno de sus amigos podía ir a pescar. Uno que no conocía, sí. Ahora son cinco.</figcaption>
 </figure>
 <p class="historia-salida" data-historia-salida><a href="../zaguan/" data-volver-zaguan>Volver al zaguán</a> <a href="../" data-ir-cartelera>Ir a la cartelera</a></p></li>
-<li data-video-item="08-los-cruzados"><figure class="video" data-video="08-los-cruzados" data-video-numero="8" data-video-titulo="Los cruzados">
+<li data-video-item="08-los-cruzados"><p class="video-caso" data-video-caso>Cuando dos amigos tuyos se caerían bien</p>
+<figure class="video" data-video="08-los-cruzados" data-video-numero="8" data-video-titulo="Los cruzados">
 <h2 class="video-titulo">Los cruzados</h2>
 <video controls preload="none" playsinline poster="../../videos/08-los-cruzados.jpg" aria-label="Los cruzados"><source src="../../videos/08-los-cruzados.mp4" type="video/mp4"></video>
 <figcaption data-video-linea>Dos amigos suyos que se caerían bien. Nunca hubo excusa.</figcaption>
 </figure>
 <p class="historia-salida" data-historia-salida><a href="../zaguan/" data-volver-zaguan>Volver al zaguán</a> <a href="../" data-ir-cartelera>Ir a la cartelera</a></p></li>
-<li data-video-item="09-el-piano-de-elsa"><figure class="video" data-video="09-el-piano-de-elsa" data-video-numero="9" data-video-titulo="El piano de Elsa">
+<li data-video-item="09-el-piano-de-elsa"><p class="video-caso" data-video-caso>Cuando tenés algo que nadie usa</p>
+<figure class="video" data-video="09-el-piano-de-elsa" data-video-numero="9" data-video-titulo="El piano de Elsa">
 <h2 class="video-titulo">El piano de Elsa</h2>
 <video controls preload="none" playsinline poster="../../videos/09-el-piano-de-elsa.jpg" aria-label="El piano de Elsa"><source src="../../videos/09-el-piano-de-elsa.mp4" type="video/mp4"></video>
 <figcaption data-video-linea>Nueve años sin que nadie lo toque. Ahora suena los jueves.</figcaption>
 </figure>
 <p class="historia-salida" data-historia-salida><a href="../zaguan/" data-volver-zaguan>Volver al zaguán</a> <a href="../" data-ir-cartelera>Ir a la cartelera</a></p></li>
-<li data-video-item="10-julia-se-mudo"><figure class="video" data-video="10-julia-se-mudo" data-video-numero="10" data-video-titulo="Julia se mudó">
+<li data-video-item="10-julia-se-mudo"><p class="video-caso" data-video-caso>Cuando recién llegás</p>
+<figure class="video" data-video="10-julia-se-mudo" data-video-numero="10" data-video-titulo="Julia se mudó">
 <h2 class="video-titulo">Julia se mudó</h2>
 <video controls preload="none" playsinline poster="../../videos/10-julia-se-mudo.jpg" aria-label="Julia se mudó"><source src="../../videos/10-julia-se-mudo.mp4" type="video/mp4"></video>
 <figcaption data-video-linea>Julia se mudó el martes. Al mes sabía once nombres.</figcaption>
 </figure>
 <p class="historia-salida" data-historia-salida><a href="../zaguan/" data-volver-zaguan>Volver al zaguán</a> <a href="../" data-ir-cartelera>Ir a la cartelera</a></p></li>
-<li data-video-item="11-como-funciona"><figure class="video" data-video="11-como-funciona" data-video-numero="11" data-video-titulo="Cómo funciona">
+<li data-video-item="11-como-funciona"><p class="video-caso" data-video-caso>Cómo se entra</p>
+<figure class="video" data-video="11-como-funciona" data-video-numero="11" data-video-titulo="Cómo funciona">
 <h2 class="video-titulo">Cómo funciona</h2>
 <video controls preload="none" playsinline poster="../../videos/11-como-funciona.jpg" aria-label="Cómo funciona"><source src="../../videos/11-como-funciona.mp4" type="video/mp4"></video>
 <figcaption data-video-linea>La puerta, el aval, el afiche, el sello. Cómo se entra a El Zaguán.</figcaption>

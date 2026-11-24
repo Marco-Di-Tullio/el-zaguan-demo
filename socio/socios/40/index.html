@@ -1403,6 +1403,20 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
  .calle-puerta{width:132px;justify-self:center}
 }
 @media (prefers-reduced-motion:reduce){.calle[data-abriendo] [data-hoja]{animation:none}.puerta-linea [data-hoja]{transition:none}}
+
+/* 2026-11-24: Historias en grilla, cada una con su caso. */
+.videos{max-width:none}
+.videos-bajada{font-family:var(--serif);font-size:24px;line-height:1.3;color:var(--acento);margin:0 0 36px;max-width:30em}
+.videos-lista{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px 28px;align-items:start}
+.videos-lista>li{margin:0;display:flex;flex-direction:column}
+.video-caso{order:-1;margin:0 0 10px;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--acento);min-height:2.6em}
+.videos-lista .video{padding:10px}
+.videos-lista .video-titulo{font-size:21px;margin:2px 2px 10px;gap:10px}
+.videos-lista .video figcaption{font-size:13px;line-height:1.45;margin-top:10px;padding-top:9px}
+/* En grilla, la salida repetida debajo de cada historia sobra: la navegación ya está arriba. */
+.videos-lista>li>p:last-child{display:none}
+@media (max-width:1000px){.videos-lista{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.videos-lista{grid-template-columns:minmax(0,1fr);gap:30px}.videos-bajada{font-size:20px;margin-bottom:26px}.video-caso{min-height:0}}
 </style>
 </head>
 <body>

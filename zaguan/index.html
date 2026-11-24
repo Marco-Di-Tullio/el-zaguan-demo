@@ -917,6 +917,11 @@ body:has([data-portada]) [data-tengo-llave][data-hundido]{background:var(--verde
 .carnet-red>div>div>[data-sin-dos-pasos]{grid-column:2;grid-row:2}
 .carnet-red>div>div span[data-pasos]{display:block;margin:4px 0 0}
 .carnet-red>div>div li:target{outline:2px solid var(--acento);outline-offset:8px;scroll-margin-top:24px}
+/* En teléfono la lista de gente a dos pasos hacía el carnet larguísimo: se ve solo la ficha de quien se toca en el plano. Para lectores de pantalla sigue entera. */
+@media (max-width:720px){
+.carnet-red>div>div h3:last-of-type+ul>li:not(:target){position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.carnet-red>div>div h3:last-of-type::after{content:"Tocá a alguien en el plano para ver su ficha.";display:block;margin-top:6px;font-family:var(--sans,sans-serif);font-size:13px;font-weight:400;letter-spacing:0;opacity:.75}
+}
 [data-lista-anillo="2"]>a:first-child{font-family:var(--serif);font-size:23px}
 [data-red-frase]{font-size:15px;line-height:1.6;margin:12px 0}
 [data-red-sumarme]{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:10px 0 0}
@@ -1330,7 +1335,7 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 <ul data-ejemplos>
 <li data-ejemplo="motor">Beto levanta el capó y te explica el motor.</li>
 <li data-ejemplo="mesa">Le gusta cocinar. Invita gente del club a su casa.</li>
-<li data-ejemplo="ningun-amigo">Querés ir al cine o a pescar y tus amigos no pueden. Gente amiga de tus amigos, sí.</li>
+<li data-ejemplo="ningun-amigo">Querés ir al cine o a pescar y tus amigos no pueden. Un amigo de tus amigos, sí.</li>
 </ul>
 <details data-mas-ejemplos>
 <summary>Ver más ejemplos</summary>
@@ -1360,16 +1365,6 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 <section data-seccion="cartelera">
 <h2>En la cartelera</h2>
 <ul class="imp-pared" data-zaguan-afiches>
-<li data-afiche data-encuentro="e-03" data-clase="juego" data-ciudad="Bariloche" data-categoria="juegos" data-etiquetas="ajedrez,dados,juegos de mesa,principiantes" data-tamano="grande" data-tinta="ocre" data-dibujo="filete" class="imp-afiche abre">
-<span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>juegos</span><span>Bariloche</span></p>
-<h3 class="grande"><a class="abre-enlace" href="../encuentros/e-03/" data-tema>Ajedrez &amp; dados: tarde de juegos &lt;nivel cero&gt;</a></h3>
-<div class="afiche-detalles">
-<p class="linea afiche-zona"><span data-zona>Centro</span>, en <span data-sede data-valor="s-02">Bar El Refugio</span> (bar)</p>
-<p class="linea" data-etiquetas-lista><span data-etiqueta>ajedrez</span> <span data-etiqueta>dados</span> <span data-etiqueta>juegos de mesa</span> <span data-etiqueta>principiantes</span></p>
-<p class="falta">Falta <span data-falta>una persona más</span>.</p>
-</div>
-<p class="pie cond"><span>Vie 27 nov · 19 h</span><span class="faltan">Quedan 4</span></p>
-</li>
 <li data-afiche data-encuentro="e-40" data-clase="caminata" data-ciudad="Buenos Aires" data-categoria="caminatas" data-etiquetas="vecinos,barrio,compras" data-tamano="mediano" data-tinta="verde" data-dibujo="filete" class="imp-afiche abre">
 <span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>caminatas</span><span>Buenos Aires</span></p>
 <h3 class="grande"><a class="abre-enlace" href="../encuentros/e-40/" data-tema>El barrio con quien lo conoce de memoria: dónde comprar cada cosa</a></h3>
@@ -1379,15 +1374,26 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 </div>
 <p class="pie cond"><span>Sáb 5 dic · 10 h</span><span>Quedan 2</span></p>
 </li>
-<li data-afiche data-encuentro="e-33" data-clase="taller" data-ciudad="Buenos Aires" data-categoria="libros" data-etiquetas="cartas,armenio,familia,traducción" data-tamano="mediano" data-tinta="ocre" data-dibujo="sello" data-en-casa class="imp-afiche abre">
-<span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>libros</span><span>Buenos Aires</span></p>
-<h3 class="grande"><a class="abre-enlace" href="../encuentros/e-33/" data-tema>Cartas en armenio, leídas en voz alta</a></h3>
+<li data-afiche data-encuentro="e-01" data-clase="caminata" data-ciudad="Buenos Aires" data-categoria="caminatas" data-etiquetas="la boca,historia,barrios,caminata" data-tamano="grande" data-tinta="azul" data-dibujo="sello" class="imp-afiche abre">
+<span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>caminatas</span><span>Buenos Aires</span></p>
+<h3 class="grande"><a class="abre-enlace" href="../encuentros/e-01/" data-tema>La Boca antes del turismo</a></h3>
 <div class="afiche-detalles">
-<p class="linea encuadre-rotulos"><span class="cond encuadre-casa" data-casa-rotulo>En una casa</span></p>
-<p class="linea afiche-zona"><span data-zona>Flores</span></p>
-<p class="linea" data-etiquetas-lista><span data-etiqueta>cartas</span> <span data-etiqueta>armenio</span> <span data-etiqueta>familia</span> <span data-etiqueta>traducción</span></p>
+<p class="linea afiche-zona"><span data-zona>La Boca</span></p>
+<p class="linea" data-etiquetas-lista><span data-etiqueta>la boca</span> <span data-etiqueta>historia</span> <span data-etiqueta>barrios</span> <span data-etiqueta>caminata</span></p>
+<p class="falta">Falta <span data-falta>una persona más</span>.</p>
 </div>
-<p class="pie cond"><span>Sáb 5 dic · 17 h</span><span>Quedan 2</span></p>
+<p class="pie cond"><span>Dom 6 dic · 10 h</span><span class="faltan">Quedan 6</span></p>
+</li>
+<li data-afiche data-encuentro="e-02" data-clase="libros" data-ciudad="Buenos Aires" data-categoria="libros" data-etiquetas="primeras ediciones,poesía,librería,boedo" data-tamano="mediano" data-tinta="verde" data-dibujo="estrella" class="imp-afiche abre">
+<span class="afiche-adorno" aria-hidden="true"></span><p class="tipo cond"><span data-categoria-visible>libros</span><span>Buenos Aires</span></p>
+<h3 class="grande"><a class="abre-enlace" href="../encuentros/e-02/" data-tema>Un libro que te quiero contar, en una librería de Boedo</a></h3>
+<div class="afiche-detalles">
+<p class="linea afiche-zona"><span data-zona>Boedo</span>, en <span data-sede data-valor="s-01">Librería La Hoja Suelta</span> (librería)</p>
+<p class="linea" data-etiquetas-lista><span data-etiqueta>primeras ediciones</span> <span data-etiqueta>poesía</span> <span data-etiqueta>librería</span> <span data-etiqueta>boedo</span></p>
+<p class="linea"><span data-pozo data-meta="30000" data-juntado="8000" data-casa="400">Pozo: $8.000 de $30.000</span></p>
+<p class="linea" data-casa-leyenda>De cada aporte, el 5% sostiene la casa.</p>
+</div>
+<p class="pie cond"><span>Jue 10 dic · 19 h</span><span>Quedan 4</span></p>
 </li>
 </ul>
 <p><a href="../cartelera/" data-ver-cartelera>Ver toda la cartelera</a></p>

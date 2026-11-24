@@ -917,6 +917,11 @@ body:has([data-portada]) [data-tengo-llave][data-hundido]{background:var(--verde
 .carnet-red>div>div>[data-sin-dos-pasos]{grid-column:2;grid-row:2}
 .carnet-red>div>div span[data-pasos]{display:block;margin:4px 0 0}
 .carnet-red>div>div li:target{outline:2px solid var(--acento);outline-offset:8px;scroll-margin-top:24px}
+/* En teléfono la lista de gente a dos pasos hacía el carnet larguísimo: se ve solo la ficha de quien se toca en el plano. Para lectores de pantalla sigue entera. */
+@media (max-width:720px){
+.carnet-red>div>div h3:last-of-type+ul>li:not(:target){position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.carnet-red>div>div h3:last-of-type::after{content:"Tocá a alguien en el plano para ver su ficha.";display:block;margin-top:6px;font-family:var(--sans,sans-serif);font-size:13px;font-weight:400;letter-spacing:0;opacity:.75}
+}
 [data-lista-anillo="2"]>a:first-child{font-family:var(--serif);font-size:23px}
 [data-red-frase]{font-size:15px;line-height:1.6;margin:12px 0}
 [data-red-sumarme]{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:10px 0 0}

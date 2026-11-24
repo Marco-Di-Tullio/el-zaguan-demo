@@ -114,8 +114,8 @@ select{appearance:none;padding-right:40px;background-image:linear-gradient(45deg
 .imp-pared [data-tamano="chico"]{min-height:300px}
 .imp-pared [data-tamano="chico"] .grande{font-size:30px}
 .imp-afiche{position:relative;display:flex;flex-direction:column;min-width:0;min-height:370px;overflow:hidden;padding:25px 26px 21px;background:var(--papel) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='papel'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpath fill='%23000' opacity='.045' filter='url(%23papel)' d='M0 0h160v160H0z'/%3E%3C/svg%3E");color:var(--verde);transition:transform .18s,box-shadow .18s;border-top:4px solid transparent;box-shadow:0 5px 10px #0000000d}
-.imp-pared .imp-afiche:nth-child(3n+1){background-color:#e0c5ab}
-.imp-pared .imp-afiche:nth-child(3n+3){background-color:#c9d0b9}
+.imp-afiche[data-papel="durazno"]{background-color:#e0c5ab}
+.imp-afiche[data-papel="salvia"]{background-color:#c9d0b9}
 .imp-pared .imp-afiche:hover{transform:translateY(-4px);box-shadow:0 12px 24px #0003;border-top-color:var(--verde)}
 .imp-afiche .tipo{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 12px;font-size:12px;line-height:1.5;letter-spacing:.08em;border-bottom:1px solid currentColor;padding-bottom:12px;margin:0 0 24px}
 .imp-afiche .tipo span:first-child{font-weight:700}
@@ -347,10 +347,6 @@ svg.oculto{position:absolute;width:0;height:0;overflow:hidden}
 .propuesta-ficha{position:relative}
 .propuesta-ficha h1{overflow-wrap:anywhere}
 .afiche-adorno{position:absolute;pointer-events:none;color:var(--adorno-afiche);display:none}
-[data-dibujo="sello"]>.afiche-adorno{display:block;right:18px;top:17px;width:44px;height:44px;border:3px double currentColor;border-radius:50%;transform:rotate(-14deg)}
-[data-dibujo="sello"]>.afiche-adorno::after{content:"+";position:absolute;inset:3px;text-align:center;font:28px/30px var(--serif);border:1px dotted currentColor;border-radius:50%}
-[data-dibujo="estrella"]>.afiche-adorno{display:block;right:20px;top:22px;width:24px;height:24px;background:currentColor;clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 94%,50% 72%,21% 94%,32% 57%,2% 35%,39% 35%)}
-:is([data-dibujo="sello"],[data-dibujo="estrella"])>.tipo,:is([data-dibujo="sello"],[data-dibujo="estrella"])>.contenido>.tipo,:is([data-dibujo="sello"],[data-dibujo="estrella"])>.propuesta-rotulo{padding-right:54px;min-height:42px}
 [data-dibujo="filete"]>.afiche-adorno{display:block;inset:10px 14px;border-block:4px double currentColor}
 [data-dibujo="marco"]>.afiche-adorno{display:block;inset:10px;border:1px solid currentColor;background:linear-gradient(currentColor,currentColor) left top/28px 3px,linear-gradient(currentColor,currentColor) right top/28px 3px,linear-gradient(currentColor,currentColor) left bottom/28px 3px,linear-gradient(currentColor,currentColor) right bottom/28px 3px,linear-gradient(currentColor,currentColor) left top/3px 28px,linear-gradient(currentColor,currentColor) right top/3px 28px,linear-gradient(currentColor,currentColor) left bottom/3px 28px,linear-gradient(currentColor,currentColor) right bottom/3px 28px;background-repeat:no-repeat}
 .imp-niebla>.afiche-adorno{opacity:.65;filter:blur(.6px)}
@@ -374,9 +370,6 @@ svg.oculto{position:absolute;width:0;height:0;overflow:hidden}
 .afiche-opcion:hover .afiche-muestra{background:var(--carton)}
 .muestra-tinta{width:27px;height:27px;border-radius:50%;background:var(--adorno-afiche)}
 .muestra-letras{font:22px var(--serif)}
-.afiche-muestra[data-dibujo="sello"]>.afiche-adorno{width:22px;height:22px;top:5px;right:5px}
-.afiche-muestra[data-dibujo="sello"]>.afiche-adorno::after{inset:2px;font-size:13px;line-height:12px;border:0}
-.afiche-muestra[data-dibujo="estrella"]>.afiche-adorno{width:13px;height:13px;top:6px;right:6px}
 .afiche-muestra[data-dibujo="filete"]>.afiche-adorno{inset:8px}
 .afiche-muestra[data-dibujo="marco"]>.afiche-adorno{inset:6px;background-size:12px 2px,12px 2px,12px 2px,12px 2px,2px 12px,2px 12px,2px 12px,2px 12px}
 .afiche-previa{margin:26px 0 30px;padding:24px;background:var(--verde);color:var(--papel)}
@@ -392,7 +385,7 @@ svg.oculto{position:absolute;width:0;height:0;overflow:hidden}
 [data-previa-linea]{margin:0}
 [hidden]{display:none!important}
 @media (max-width:800px){.proponer-afiche{display:block}.proponer-afiche>.afiche-previa{margin:24px 0}.proponer:has(.proponer-afiche){max-width:680px}}
-@media (max-width:620px){.afiche-muestras{gap:7px}.afiche-muestra{height:55px}.afiche-opcion{font-size:10px}.afiche-previa{padding:16px;margin-inline:-8px}.afiche-previa .grande{font-size:30px}.afiche-previa .imp-afiche{padding:22px}.afiche-muestra[data-dibujo="sello"]>.afiche-adorno{width:18px;height:18px;right:3px;top:3px}.afiche-muestra[data-dibujo="sello"]>.afiche-adorno::after{font-size:10px;line-height:8px}}
+@media (max-width:620px){.afiche-muestras{gap:7px}.afiche-muestra{height:55px}.afiche-previa{padding:16px;margin-inline:-8px}.afiche-previa .grande{font-size:30px}.afiche-previa .imp-afiche{padding:22px}}
 
 .mas{min-width:0;margin:32px 0}
 .mas-datos{margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 24px}
@@ -471,8 +464,6 @@ section.tope-ofrecimientos ul{list-style:none;margin:28px 0;padding:0}
 section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 
 /* Letra chica de imprenta en todos los pozos. */
-[data-casa-leyenda],.imp-afiche .linea[data-casa-leyenda],.imp-solo .linea[data-casa-leyenda]{font-family:var(--sans);font-size:12px;line-height:1.5;letter-spacing:0;font-weight:400}
-.imp-afiche .linea[data-casa-leyenda]{margin-top:4px;max-width:30em}
 
 /* Las notas que dejaron y la red propia se leen debajo del cartón. */
 .carnet-abajo{align-items:start}
@@ -528,7 +519,6 @@ section.tope-ofrecimientos li{border-top:1px solid var(--linea);padding:14px 0}
 .que-es-detalles{font-size:15px}
 [data-que-no-es]{list-style:none;padding:0;margin:24px 0;font-size:14px;line-height:1.8}
 [data-apuesta]{font-family:var(--serif);font-size:24px;line-height:1.4;max-width:26em;margin:26px 0}
-.que-es>[data-casa-leyenda]{border-block:1px solid var(--linea);padding:16px 0;margin:0}
 [data-nortes]{margin-top:28px}
 [data-nortes] h2{font-size:28px;margin-bottom:18px}
 [data-nortes] ol{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;list-style:none;margin:0;padding:0}
@@ -789,10 +779,6 @@ body:has([data-portada]) [data-tengo-llave][data-hundido]{background:var(--verde
 .que-es>[data-nortes]{max-width:780px;justify-self:start;padding:26px 30px;border:1px solid var(--linea)}
 .que-es [data-norte]{font-family:var(--sans);font-size:14px;padding:13px 0;line-height:1.6}
 .que-es .nortes>.nota{color:var(--acento);opacity:1}
-.que-es [data-casa-leyenda]{font-size:15px;margin:0 0 20px}
-.que-es [data-casa-barra]{display:flex;max-width:780px;padding-bottom:35px}
-.que-es [data-casa-parte]{flex:0 0 var(--parte);min-width:0;border-top:24px solid var(--acento);padding-top:12px;white-space:nowrap;font-size:13px;line-height:1.4}
-.que-es [data-casa-parte='pozo']{border-color:var(--papel);text-align:right}
 .que-es [data-que-es-pie]{grid-column:1/-1;justify-content:space-between;border-top:1px solid var(--linea);padding-top:28px;margin-top:30px}
 .que-es [data-que-es-pie] .boton{min-height:60px;min-width:230px}
 /* Primero la entrada; abajo la cartelera con sus filtros intactos. */
@@ -850,9 +836,6 @@ body:has([data-portada]) [data-tengo-llave][data-hundido]{background:var(--verde
  .que-es [data-sin-puntajes]{margin-top:0}
  .que-es [data-apuesta]{padding:22px;font-size:30px}
  .que-es>[data-nortes]{padding:24px}
- .que-es [data-casa-barra]{padding-bottom:28px}
- .que-es [data-casa-parte]{font-size:12px}
- .que-es [data-casa-parte='pozo']{padding-top:36px}
  .que-es [data-que-es-pie]{gap:24px}
  .que-es [data-que-es-pie] .boton{min-width:0;flex:1}
  [data-timbre].hoja{display:block}
@@ -1100,9 +1083,6 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 .zaguan [data-apuesta]{font:30px/1.3 var(--serif);color:var(--acento);max-width:28em;margin:0}
 .zaguan [data-nortes] ol{margin:0;padding-left:22px}
 .zaguan [data-norte]{padding:8px 0;font-size:15px}
-.zaguan [data-casa-barra]{display:flex;padding-bottom:24px}
-.zaguan [data-casa-parte]{flex:0 0 var(--parte);border-top:16px solid var(--acento);padding-top:8px;white-space:nowrap;font-size:12px}
-.zaguan [data-casa-parte="pozo"]{border-color:var(--papel);text-align:right}
 .zaguan [data\2d segunda-puerta]{border:0;padding:0}
 .segunda-puerta>p,.zaguan-pie{display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px;margin:0 0 14px}
 .zaguan-pie{grid-column:1/-1}
@@ -1137,7 +1117,7 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 [data\2d grupo-rotulo]{font:12px/1.5 var(--sans);text-transform:uppercase;letter-spacing:.14em;color:var(--acento);margin:0 0 18px}
 [data\2d grupo-lista="sin-fecha"]{border-top:1px solid var(--linea);padding-top:28px;margin-top:32px}
 [data\2d grupo-lista="sin-fecha"] [data\2d grupo-rotulo]{color:#c4cbbf}
-[data\2d grupo-lista="sin-fecha"] .imp-afiche{background-color:#d5d4c2;box-shadow:none;min-height:290px}
+[data\2d grupo-lista="sin-fecha"] .imp-afiche{box-shadow:none;min-height:290px}
 [data\2d ver-mas-pie]{display:flex;justify-content:center;align-items:center;gap:16px;padding:24px 0;margin:16px 0 0;border-block:1px solid var(--linea)}
 [data\2d ver-mas]{display:inline-flex;align-items:center;justify-content:center;min-height:48px;min-width:150px;padding:10px 24px;border:1px solid var(--acento);color:var(--acento);font-size:14px;text-decoration:none}
 [data\2d ver-mas]:hover{background:var(--acento);color:var(--fondo)}
@@ -1175,13 +1155,9 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 .propuesta-texto{padding-left:14px}
 .propuesta-ficha [data-plegado="datos-pedido"]{margin-top:20px}
 .propuesta-ficha .propuesta-rotulo{margin:0 0 22px}
-.propuesta-ficha:is([data-dibujo="estrella"],[data-dibujo="sello"]) .propuesta-rotulo{padding-right:44px;min-height:36px}
 .dinero[data-dinero-bloque]{list-style:none;padding:14px 0;margin:16px 0;border-block:1px solid var(--linea);font-size:14px;line-height:1.6}
 .dinero[data-dinero-bloque] li{margin:0 0 6px}
 .dinero[data-dinero-bloque] li:last-child{margin:0}
-[data-pozo-bloque]>p[data-casa-leyenda]{display:none}
-/* Con el bloque del dinero en la página, el 5% se lee una vez: ahí, no también en el afiche. */
-.encuentro-pagina:has(.dinero) .imp-solo .linea[data-casa-leyenda]{display:none}
 .afuera-salidas{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .afuera-salidas .boton-sec{margin:0}
 .imp-dorso[data-dorso-compacto]{align-self:start}
@@ -1256,7 +1232,6 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
  .zaguan [data-plegado="como-funciona"] section,.zaguan [data-cajas]{grid-template-columns:1fr}
  .zaguan [data-caja]{display:flex;align-items:baseline;gap:16px;font-size:21px}
  .zaguan [data-caja]::before{margin:0}
- .zaguan [data-casa-parte="pozo"]{padding-top:30px}
  .segunda-puerta .boton,.segunda-puerta .boton-sec{width:100%}
  .busqueda-barra[data\2d filtros-fila]{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px}
  [data\2d filtros-fila] .busqueda-form label:first-of-type{grid-column:1/-1}
@@ -1306,6 +1281,99 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
  [data-nav-principal]{gap:6px}
  .portada[data-calle] [data-pregunta],.portada[data-calle] [data-frase]{font-size:27px}
 }
+
+.carnet-nav{display:flex;gap:8px 24px;border-bottom:1px solid var(--linea);margin:0 auto 28px;max-width:1040px}
+.carnet-nav a{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:48px;font-size:14px;text-decoration:none;border-bottom:2px solid transparent}
+.carnet-nav a[aria-current]{border-color:var(--acento);color:var(--acento)}
+.carnet-seccion{max-width:800px;margin:auto}
+.carnet-seccion>.carnet-red>h2{display:none}
+.carnet-seccion>section{margin-bottom:28px}
+.carnet-abajo{display:flex;flex-direction:column;gap:24px;max-width:800px}
+.carnet-abajo>*{width:100%;min-width:0}
+.carnet-abajo [data-plegado]>section{padding-bottom:24px}
+.carnet-abajo [data-plegado="cuidados"]>section{padding:24px;background:var(--papel);color:var(--verde);--linea:var(--borde-papel)}
+.carnet-abajo .cambiar summary{width:100%}
+.carnet-seccion .carnet-avales{max-width:540px}
+.carnet-seccion .carnet-avales h2{font:26px/1.2 var(--serif);letter-spacing:0;text-transform:none}
+.carnet-seccion [data-plegado="plano"]{margin-bottom:24px}
+
+/* Pedidos en renglones: el vínculo con la persona se lee junto al título. */
+.lo-que-se-busca .pedidos{display:block}
+.pedido-fila{display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:16px 32px;padding:24px 0;border-bottom:1px solid var(--linea);background:none;color:var(--papel)}
+.pedido-principal{min-width:0}
+.pedido-principal h3{margin:0 0 8px}
+.pedido-fila .pedido-que{font-size:28px;line-height:1.15;text-decoration:none}
+.pedido-fila .pedido-que:hover{text-decoration:underline}
+.pedido-fila .pedido-quien{padding:0;margin:0;font-size:14px;color:var(--acento)}
+.pedido-fila .pedido-camino{font-size:14px;margin:4px 0 0}
+.pedido-fila .pedido-detalle{border:0}
+.pedido-detalle[open]{grid-column:1/-1}
+.pedido-detalle>summary{min-width:44px}
+.pedido-fila .pedido-rotulo{font-size:14px;border-color:var(--linea)}
+.pedido-fila [data-etiqueta]{border:0;padding:0 12px 0 0;font-size:14px}
+.pedido-detalle>p:last-child{margin-bottom:0}
+.proponer-texto{margin:28px 0 0}
+.proponer-texto textarea{height:140px;min-height:140px;margin-bottom:24px}
+.afiche-muestras{grid-template-columns:repeat(auto-fit,minmax(64px,1fr))}
+.afiche-opcion{font-size:14px}
+
+/* Una cabecera, la conversación y luego el material complementario. */
+.encuentro-pagina[data-accion-arriba]{display:flex;flex-direction:column;gap:24px;max-width:760px}
+.encuentro-pagina[data-accion-arriba]>*{width:100%;min-width:0}
+.encuentro-pagina[data-accion-arriba]>.mas{margin:0}
+.interior>[data-plegado="cierre"]{margin-top:24px}
+.encuentro-publico{display:flex;flex-direction:column;gap:24px;max-width:680px}
+.encuentro-publico>*{width:100%;min-width:0;margin:0}
+.encuentro-publico>.empanado{padding:24px;font-size:22px}
+.encuentro-publico .afuera-salidas{margin:18px 0 0}
+.portada .puerta-dibujo{filter:drop-shadow(4px 7px 10px #0002)}
+.portada .placa{box-shadow:2px 4px 10px #0002,inset 0 1px 1px #f7f1e280}
+
+@media(max-width:620px){
+ .imp-top:has([data-nav-socio]){position:relative;display:flex;flex-wrap:wrap;gap:0;padding:12px 0}
+ .imp-top:has([data-nav-socio]) .imp-logo{font-size:28px;line-height:44px}
+ .imp-top:has(form) .imp-nav[data-nav-socio]{position:static;display:grid;grid-template-columns:minmax(0,1fr) auto;width:100%;gap:8px 12px;border-top:1px solid var(--linea);padding-top:8px;font-size:14px}
+ [data-nav-principal]{grid-column:1;grid-row:1;display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 8px;white-space:normal}
+ .imp-nav[data-nav-socio] a,.imp-nav[data-nav-socio] button,.imp-nav[data-nav-socio] summary{font-size:14px;min-width:44px;min-height:44px}
+ .imp-nav [data-sesion]{position:absolute;top:12px;right:0;grid-area:auto;padding:10px 0;line-height:24px}
+ [data-nav-menu]{grid-column:2;grid-row:1;min-width:44px}
+ .imp-pared .imp-afiche,.imp-pared [data-tamano],.imp-solo .imp-afiche{min-height:0;padding:24px}
+ .imp-pared .imp-afiche .grande,.imp-pared [data-tamano] .grande,.imp-solo .imp-afiche .grande{font-size:34px;line-height:1.1}
+ .imp-pared .imp-afiche .tipo{margin-bottom:18px;font-size:14px}
+ .imp-pared .afiche-detalles{margin-bottom:16px}
+ .imp-pared .imp-niebla .contenido{min-height:0}
+ .zaguan [data-zaguan-afiches]{align-items:flex-start;padding-bottom:0;margin-bottom:24px}
+ .zaguan [data-zaguan-afiches] .imp-afiche{min-height:0;padding:24px}
+ .zaguan [data-zaguan-afiches] .grande{font-size:34px;line-height:1.1}
+ .pedido-fila{display:block;padding:20px 0}
+ .pedido-fila .pedido-que{font-size:26px}
+ .pedido-detalle{margin-top:8px}
+ .pedido-detalle>summary{max-width:140px}
+ .carnet-nav{justify-content:space-between;gap:12px}
+}
+
+/* 2026-11-24: la caja única, el plano vivo y el sello que cae. */
+.caja-unica{margin:8px 0 8px;max-width:820px}
+.caja-unica label{display:block;font-family:var(--sans);font-size:14px;color:var(--acento);margin-bottom:10px}
+.caja-unica textarea{display:block;width:100%;min-height:0;padding:6px 0 14px;border:0;border-bottom:1px solid var(--linea);border-radius:0;background:transparent;color:var(--papel);font-family:var(--serif);font-size:32px;line-height:1.2;letter-spacing:-.02em;resize:none;overflow:hidden;box-shadow:none}
+.caja-unica textarea::placeholder{color:var(--papel);opacity:.38}
+.caja-unica textarea:focus{outline:none;border-bottom-color:var(--acento)}
+.caja-acciones{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 0}
+.caja-estado{margin:22px 0 4px;font-family:var(--serif);font-size:20px;line-height:1.35;color:var(--acento);max-width:34em}
+[data-resultados][aria-busy="true"]{opacity:.55;transition:opacity .15s}
+.con-caja .filtros-panel label:has([data-buscar="que"]){display:none}
+.mapa-desplazamiento line{transition:stroke-opacity .18s,stroke-width .18s}
+.mapa-desplazamiento line.mapa-enlace-vista{stroke-opacity:.75;stroke-width:1.1}
+[data-anillo].mapa-vista,[data-anillo].mapa-elegido{color:var(--rojo)}
+@keyframes selloCae{0%{opacity:0;transform:scale(1.9) rotate(-16deg)}55%{opacity:1;transform:scale(.94) rotate(2deg)}75%{transform:scale(1.03) rotate(-1deg)}100%{opacity:1;transform:none}}
+[data-sello-cae] svg{opacity:0;transform-origin:50% 50%;animation:selloCae .5s cubic-bezier(.2,.9,.3,1) var(--sello-espera,.3s) forwards}
+@media (max-width:720px){
+ .caja-unica textarea{font-size:24px}
+ .caja-estado{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){[data-sello-cae] svg{opacity:1;animation:none}}
+.mapa-mas{margin:14px 0 0;font-size:14px}
+.mapa-mas a{color:var(--verde);text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -1316,13 +1384,12 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 <nav class="imp-nav" aria-label="El Zaguán" data-nav-socio>
 <a href="./" data-sesion data-socio="1">Rosario · N.º 1</a>
 <div data-nav-principal><a href="../">Cartelera</a>
-<a href="../proponer/">Proponer</a>
-<a href="../lo-que-se-busca/">Lo que se busca</a></div>
+<a href="../lo-que-se-busca/">Proponer o buscar</a></div>
 <details data-nav-menu><summary>Menú</summary>
-<a href="../clubes/">Clubes</a>
 <a href="./" aria-current="page" data-actual>Carnet</a>
 <a href="../zaguan/">El zaguán</a>
 <a href="../historias/">Historias</a>
+<a href="../si-algo-sale-mal/">Si algo sale mal</a>
 <form method="get" action="#" data-muestra="salir" data-destino="../../"><button type="submit">Salir</button></form>
 </details>
 </nav>
@@ -1339,11 +1406,10 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 </filter>
 </defs>
 </svg>
-<section class="carnet-pagina">
+<section class="carnet-pagina"><nav class="carnet-nav" aria-label="Tu espacio"><a href="./" aria-current="page">Carnet</a><a href="q/vista-red/">Tu red</a><a href="q/vista-avales/">Avales</a></nav>
 <div class="carnet-encabezado"><p class="ceja">Tu carnet</p><p class="nota">Cada encuentro deja su sello.</p></div>
 
-<div class="imp-carnet">
-<div class="imp-tarjeta carnet">
+<div class="imp-carnet"><div class="imp-tarjeta carnet">
 <div class="franja cond"><span>El Zaguán</span><span>Carnet de socio</span></div>
 <div class="cuerpo">
 <div class="num cond"><small>Carnet Nº</small><span data-carnet="numero" data-valor="1">0001</span></div>
@@ -1351,30 +1417,44 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 <div class="campo"><dt>Nombre</dt><dd><h1>Rosario Quiroga</h1></dd></div>
 <div class="campo"><dt>Aval</dt><dd data-carnet="aval" data-valor="">Sin aval, de los fundadores</dd></div>
 <div class="campo"><dt>Condición</dt><dd data-carnet="vitalicio" data-valor="si">Membresía vitalicia, sin cuota</dd></div>
-<div class="campo"><dt>Clubes</dt><dd><a href="../clubes/club-de-la-mesa-larga/" data-carnet="subclub" data-valor="club-de-la-mesa-larga">Club de la Mesa Larga</a> · <a href="../clubes/club-de-los-martes/" data-carnet="subclub" data-valor="club-de-los-martes">Club de los Martes</a></dd></div>
+
 </dl>
 </div>
 <div class="firma">Alta en marzo de 2026 · Buenos Aires</div>
-</div>
-<div class="imp-tarjeta imp-dorso" data-dorso-compacto>
+</div><div class="imp-tarjeta imp-dorso" data-dorso-compacto data-sellos-de="1">
 <div class="franja cond"><span>Sellos</span><span>2026</span></div>
 <p class="dorso-vacio nota" data-sellos-vacios data-compacto>Todavía sin sellos. Se ganan cerrando encuentros.</p>
-</div>
-</div>
+</div><script>
+(function () {
+  var dorso = document.querySelector('[data-sellos-de]');
+  if (!dorso) return;
+  var clave = 'zaguan-sellos-' + dorso.getAttribute('data-sellos-de');
+  var casillas = [].slice.call(dorso.querySelectorAll('[data-carnet="sello"]'));
+  var ids = casillas.map(function (c) { return c.getAttribute('data-encuentro'); });
+  var vistos = null;
+  try { vistos = JSON.parse(window.localStorage.getItem(clave)); } catch (e) {}
+  var pedido = new URLSearchParams(window.location.search).get('sello');
+  var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var n = 0;
+  casillas.forEach(function (c) {
+    var id = c.getAttribute('data-encuentro');
+    var nuevo = id === pedido || (Array.isArray(vistos) && vistos.indexOf(id) === -1);
+    if (!nuevo) return;
+    c.setAttribute('data-sello-nuevo', '');
+    if (!quieto) { c.style.setProperty('--sello-espera', (0.35 + n * 0.45) + 's'); c.setAttribute('data-sello-cae', ''); }
+    n += 1;
+  });
+  if (n && !quieto && dorso.scrollIntoView) dorso.scrollIntoView({ block: 'nearest' });
+  try { window.localStorage.setItem(clave, JSON.stringify(ids)); } catch (e) {}
+})();
+</script></div>
 <div class="hoja carnet-abajo">
-<section data-cuidados>
-<h2 class="cond">Tus cuidados</h2>
-<p class="nota" data-cuidados-explica>Los cuidados no los ve nadie. Cuando impiden sumarse a un encuentro, la página lo dice sin decir de quién son.</p>
-<form method="get" action="#" class="formulario cuidados-form" data-form-cuidados data-muestra="fija">
-<label class="cuidados-opcion"><input type="checkbox" name="soloGrupo" value="1" data-cuidado="soloGrupo"> <strong>Solo en grupo</strong> <span class="nota">No te sumás ni te suman a encuentros de dos.</span></label>
-<label class="cuidados-opcion"><input type="checkbox" name="primeraVezPublico" value="1" data-cuidado="primeraVezPublico"> <strong>La primera vez, en un lugar público</strong> <span class="nota">Con alguien con quien nunca compartiste un encuentro, solo en una sede.</span></label>
-<label class="cuidados-opcion"><input type="checkbox" name="soloDosPasos" value="1" data-cuidado="soloDosPasos"> <strong>Solo gente a dos pasos</strong> <span class="nota">Solo te sumás, y solo se suman con vos, quienes están a uno o dos pasos.</span></label>
-<label class="cuidados-socia"><input type="checkbox" name="socia" value="1" data-socia> <strong>Soy socia</strong></label>
-<p class="nota" data-socia-explica>Sirve solo para sumarse a lo que es entre mujeres. No se muestra a nadie.</p>
-<button type="submit" class="boton">Guardar</button>
-</form>
+
+<section class="carnet-acercaron" data-te-acercaron>
+<h2 class="cond">Te acercaron</h2>
+<p class="nota">Todavía no te acercaron nada.</p>
 </section>
-<section class="busca-da">
+<details data-plegado="perfil"><summary>Lo que busco, lo que puedo dar e intereses</summary><section class="busca-da">
 <div>
 <h2 class="cond">Lo que busco</h2>
 <ul class="renglones"><li data-busco data-etiquetas="seguridad de ia,inteligencia artificial"><span data-texto>entender seguridad de IA con alguien que trabaje en eso</span> <span class="carnet-etiquetas"><span data-etiqueta>seguridad de ia</span> <span data-etiqueta>inteligencia artificial</span></span></li></ul>
@@ -1433,296 +1513,20 @@ p[data-somos-varios]{border-top:1px solid var(--linea);padding-top:12px;margin-t
 <button type="submit" class="boton">Guardar</button>
 </form>
 </details>
-</section>
-<section class="carnet-te-presentaron" data-te-presentaron>
-<h2 class="cond">Te presentaron</h2>
-
-<p class="nota">Nada para responder.</p>
-</section>
-<section class="carnet-presentar" data-presentar>
-<h2 class="cond">Presentar a dos conocidos</h2>
-<p class="nota">Dos personas que conocés y no se conocen entre sí. A cada una le llega en su carnet; si las dos aceptan, quedan a un paso.</p>
-<form method="get" action="#" class="formulario" data-form-presentar data-muestra="fija">
-<label for="presentar-a">A
-<select id="presentar-a" name="a" required data-campo="a">
-<option value="">Elegí</option>
-<option value="12" data-conocido="12">Agustina Peña</option>
-<option value="5" data-conocido="5">Celeste Arregui</option>
-<option value="7" data-conocido="7">Néstor Galíndez</option>
-</select></label>
-<label for="presentar-b">Y a
-<select id="presentar-b" name="b" required data-campo="b">
-<option value="">Elegí</option>
-<option value="12" data-conocido="12">Agustina Peña</option>
-<option value="5" data-conocido="5">Celeste Arregui</option>
-<option value="7" data-conocido="7">Néstor Galíndez</option>
-</select></label>
-<label for="presentar-linea">Tu línea
-<input id="presentar-linea" name="linea" data-campo="linea" maxlength="140" required placeholder="Viven a tres cuadras y nunca se cruzaron"></label>
-<fieldset data-pretexto-opciones>
-<legend>Un pretexto (si querés)</legend>
-<label><input type="radio" name="pretexto" value="" checked data-campo="pretexto"> Ninguno</label>
-<label><input type="radio" name="pretexto" value="hacer" data-campo="pretexto"> Algo para hacer juntos</label>
-<label for="presentar-hacer">Qué
-<input id="presentar-hacer" name="hacer" data-campo="hacer" maxlength="140" placeholder="Un café en la esquina de siempre"></label>
-<label><input type="radio" name="pretexto" value="encuentro" data-campo="pretexto"> Una juntada que ya existe</label>
-<label for="presentar-encuentro">Cuál
-<select id="presentar-encuentro" name="encuentro" data-campo="encuentro">
-<option value="">Elegí</option>
-<option value="e-03" data-encuentro="e-03">Ajedrez &amp; dados: tarde de juegos &lt;nivel cero&gt;</option>
-<option value="e-06" data-encuentro="e-06">¿Se puede pensar de a muchos sin ganar?</option>
-<option value="e-40" data-encuentro="e-40">El barrio con quien lo conoce de memoria: dónde comprar cada cosa</option>
-<option value="e-33" data-encuentro="e-33">Cartas en armenio, leídas en voz alta</option>
-<option value="e-01" data-encuentro="e-01">La Boca antes del turismo</option>
-<option value="e-02" data-encuentro="e-02">Un libro que te quiero contar, en una librería de Boedo</option>
-<option value="e-35" data-encuentro="e-35">Cartas de familia, entre vecinas</option>
-<option value="e-34" data-encuentro="e-34">Almuerzo de domingo en casa, para seis</option>
-<option value="e-08" data-encuentro="e-08">Tu auto por dentro: carburador y encendido</option>
-<option value="e-36" data-encuentro="e-36">El puerto de La Boca, mano a mano</option>
-<option value="e-11" data-encuentro="e-11">Bandoneón en el bar</option>
-<option value="e-12" data-encuentro="e-12">Esquila en una chacra</option>
-<option value="e-31" data-encuentro="e-31">Bariloche caminada con alguien que vive ahí</option>
-<option value="e-39" data-encuentro="e-39">Pesca en el lago, con alguien de ahí que da el dato</option>
-<option value="e-07" data-encuentro="e-07">Ajedrez por guitarra criolla</option>
-<option value="e-14" data-encuentro="e-14">Mesa de pensar sin querer ganar</option>
-<option value="e-16" data-encuentro="e-16">Caminatas por San Telmo</option>
-<option value="e-17" data-encuentro="e-17">Cocina patagónica en casa</option>
-<option value="e-18" data-encuentro="e-18">Charlas de física</option>
-<option value="e-19" data-encuentro="e-19">Recorridos por librerías de viejo de Avenida de Mayo</option>
-<option value="e-20" data-encuentro="e-20">Juegos de mesa de estrategia</option>
-<option value="e-21" data-encuentro="e-21">Partidas de rol para principiantes</option>
-<option value="e-22" data-encuentro="e-22">Contabilidad para pymes sin miedo</option>
-<option value="e-23" data-encuentro="e-23">Fotografía</option>
-<option value="e-24" data-encuentro="e-24">Caminatas por el cerro Otto contando su historia</option>
-<option value="e-25" data-encuentro="e-25">Bandoneón de cerca</option>
-<option value="e-26" data-encuentro="e-26">Salidas al campo a la chacra de frutas finas</option>
-<option value="e-27" data-encuentro="e-27">Tango por fotografía</option>
-<option value="e-45" data-encuentro="e-45">Aprender a hacer un guiso de olla</option>
-</select></label>
-</fieldset>
-<fieldset data-con-opciones>
-<legend>La juntada, con quién</legend>
-<label><input type="radio" name="con" value="tres" checked data-campo="con"> Con los tres</label>
-<label><input type="radio" name="con" value="dos" data-campo="con"> Solo ellos dos</label>
-</fieldset>
-<button type="submit" class="boton">Presentar</button>
+</section></details>
+<details data-plegado="cuidados"><summary>Tus cuidados</summary><section data-cuidados>
+<h2 class="cond">Tus cuidados</h2>
+<p class="nota" data-cuidados-explica>Los cuidados no los ve nadie. Cuando impiden sumarse a un encuentro, la página lo dice sin decir de quién son.</p>
+<form method="get" action="#" class="formulario cuidados-form" data-form-cuidados data-muestra="fija">
+<label class="cuidados-opcion"><input type="checkbox" name="soloGrupo" value="1" data-cuidado="soloGrupo" checked> <strong>Solo en grupo</strong> <span class="nota">No te sumás ni te suman a encuentros de dos.</span></label>
+<label class="cuidados-opcion"><input type="checkbox" name="primeraVezPublico" value="1" data-cuidado="primeraVezPublico"> <strong>La primera vez, en un lugar público</strong> <span class="nota">Con alguien con quien nunca compartiste un encuentro, solo en una sede.</span></label>
+<label class="cuidados-opcion"><input type="checkbox" name="soloDosPasos" value="1" data-cuidado="soloDosPasos"> <strong>Solo gente a dos pasos</strong> <span class="nota">Solo te sumás, y solo se suman con vos, quienes están a uno o dos pasos.</span></label>
+<label class="cuidados-socia"><input type="checkbox" name="socia" value="1" data-socia> <strong>Soy socia</strong></label>
+<p class="nota" data-socia-explica>Sirve solo para sumarse a lo que es entre mujeres. No se muestra a nadie.</p>
+<button type="submit" class="boton">Guardar</button>
 </form>
+</section></details>
 
-</section>
-
-<section class="carnet-acercaron" data-te-acercaron>
-<h2 class="cond">Te acercaron</h2>
-<p class="nota">Todavía no te acercaron nada.</p>
-</section>
-
-<section class="carnet-red" data-red>
-<h2 class="cond">Tu red</h2>
-<div data-mapa-red>
-<figure data-mapa-figura>
-<div class="mapa-rotulo"><span>Entre conocidos</span><span>Desde vos</span></div>
-<div class="mapa-desplazamiento" tabindex="0" role="region" aria-label="Plano de tu red. Podés desplazarlo a los costados.">
-<svg data-mapa viewBox="-330 -330 660 660" width="100%" role="group" aria-labelledby="mapa-titulo mapa-desc" data-nombres-afuera="texto">
-<title id="mapa-titulo">Tu red</title>
-<desc id="mapa-desc">Vos en el centro; alrededor, la gente que conocés; más afuera, la que está a dos pasos, unida a quien te la acerca. La misma gente está en la lista de abajo.</desc>
-<g class="mapa-anillos" fill="none" stroke="currentColor" aria-hidden="true">
-<ellipse cx="0" cy="0" rx="110" ry="112" transform="rotate(-3)"/>
-<ellipse cx="0" cy="0" rx="220" ry="222" transform="rotate(2)"/>
-</g>
-<g data-enlaces>
-<line data-enlace data-de="1" data-a="5" x1="0" y1="0" x2="0" y2="-110" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="1" data-a="7" x1="0" y1="0" x2="95.3" y2="55" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="1" data-a="12" x1="0" y1="0" x2="-95.3" y2="55" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="5" data-a="6" x1="0" y1="-110" x2="0" y2="-220" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="12" data-a="6" x1="-95.3" y1="55" x2="0" y2="-220" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="5" data-a="19" x1="0" y1="-110" x2="102.2" y2="-194.8" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="5" data-a="24" x1="0" y1="-110" x2="181.1" y2="-125" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="12" data-a="24" x1="-95.3" y1="55" x2="181.1" y2="-125" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="5" data-a="43" x1="0" y1="-110" x2="218.4" y2="-26.5" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="12" data-a="43" x1="-95.3" y1="55" x2="218.4" y2="-26.5" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="5" data-a="52" x1="0" y1="-110" x2="205.7" y2="78" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="7" data-a="14" x1="95.3" y1="55" x2="145.9" y2="164.7" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="7" data-a="32" x1="95.3" y1="55" x2="52.6" y2="213.6" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="7" data-a="40" x1="95.3" y1="55" x2="-52.6" y2="213.6" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="12" data-a="9" x1="-95.3" y1="55" x2="-145.9" y2="164.7" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="12" data-a="11" x1="-95.3" y1="55" x2="-205.7" y2="78" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="12" data-a="20" x1="-95.3" y1="55" x2="-218.4" y2="-26.5" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="12" data-a="33" x1="-95.3" y1="55" x2="-181.1" y2="-125" stroke="currentColor" stroke-opacity="0.4"/>
-<line data-enlace data-de="12" data-a="42" x1="-95.3" y1="55" x2="-102.2" y2="-194.8" stroke="currentColor" stroke-opacity="0.4"/>
-</g>
-<g data-nodo data-socio="1" data-anillo="0"><title>Vos, Rosario Quiroga</title><circle cx="0" cy="0" r="9" fill="currentColor"/><text x="0" y="27" text-anchor="middle" font-size="13" fill="currentColor">Vos</text></g>
-<a href="../socios/5/" data-nodo data-socio="5" data-anillo="1" aria-label="Celeste Arregui, que conocés"><title>Celeste Arregui, que conocés</title><circle cx="0" cy="-110" r="5" fill="currentColor"/><circle class="mapa-tocar" cx="0" cy="-110" r="22"/><text x="0" y="-123" text-anchor="middle" font-size="12" fill="currentColor">Celeste</text></a>
-<a href="../socios/7/" data-nodo data-socio="7" data-anillo="1" aria-label="Néstor Galíndez, que conocés"><title>Néstor Galíndez, que conocés</title><circle cx="95.3" cy="55" r="5" fill="currentColor"/><circle class="mapa-tocar" cx="95.3" cy="55" r="22"/><text x="110.9" y="69" text-anchor="start" font-size="12" fill="currentColor">Néstor</text></a>
-<a href="../socios/12/" data-nodo data-socio="12" data-anillo="1" aria-label="Agustina Peña, que conocés"><title>Agustina Peña, que conocés</title><circle cx="-95.3" cy="55" r="5" fill="currentColor"/><circle class="mapa-tocar" cx="-95.3" cy="55" r="22"/><text x="-110.9" y="69" text-anchor="end" font-size="12" fill="currentColor">Agustina</text></a>
-<a href="#red-6" data-nodo data-socio="6" data-anillo="2" data-medio="5,12" aria-label="Beto Ferreyra. Beto busca: “Entender de vinos sin chamuyo”. Por Celeste y Agustina."><title>Beto Ferreyra. Beto busca: “Entender de vinos sin chamuyo”. Por Celeste y Agustina.</title><circle cx="0" cy="-220" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="0" cy="-220" r="22"/><text x="0" y="-233" text-anchor="middle" font-size="12" fill="currentColor">Beto</text></a>
-<a href="#red-19" data-nodo data-socio="19" data-anillo="2" data-medio="5" aria-label="Gonzalo Pereyra. Gonzalo da: “Juegos de mesa de estrategia”. Por Celeste."><title>Gonzalo Pereyra. Gonzalo da: “Juegos de mesa de estrategia”. Por Celeste.</title><circle cx="102.2" cy="-194.8" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="102.2" cy="-194.8" r="22"/><text x="110.6" y="-205.7" text-anchor="start" font-size="12" fill="currentColor">Gonzalo</text></a>
-<a href="#red-24" data-nodo data-socio="24" data-anillo="2" data-medio="5,12" aria-label="Julia Saavedra. Julia va a: “El barrio con quien lo conoce de memoria: dónde comprar cada cosa”. Por Celeste y Agustina."><title>Julia Saavedra. Julia va a: “El barrio con quien lo conoce de memoria: dónde comprar cada cosa”. Por Celeste y Agustina.</title><circle cx="181.1" cy="-125" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="181.1" cy="-125" r="22"/><text x="195.9" y="-130.2" text-anchor="start" font-size="12" fill="currentColor">Julia</text></a>
-<a href="#red-43" data-nodo data-socio="43" data-anillo="2" data-medio="5,12" aria-label="Martín Sarasola. A Martín le gusta dar: “la vuelta de los lagos de Palermo, a las siete y media”. Por Celeste y Agustina."><title>Martín Sarasola. A Martín le gusta dar: “la vuelta de los lagos de Palermo, a las siete y media”. Por Celeste y Agustina.</title><circle cx="218.4" cy="-26.5" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="218.4" cy="-26.5" r="22"/><text x="236.3" y="-23.7" text-anchor="start" font-size="12" fill="currentColor">Martín</text></a>
-<a href="#red-52" data-nodo data-socio="52" data-anillo="2" data-medio="5" aria-label="Brenda Rinaldi. A Brenda le gusta dar: “te explico cómo plantar tomates en el balcón”. Por Celeste."><title>Brenda Rinaldi. A Brenda le gusta dar: “te explico cómo plantar tomates en el balcón”. Por Celeste.</title><circle cx="205.7" cy="78" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="205.7" cy="78" r="22"/><text x="222.5" y="89.4" text-anchor="start" font-size="12" fill="currentColor">Brenda</text></a>
-<a href="#red-14" data-nodo data-socio="14" data-anillo="2" data-medio="7" aria-label="Carla Montenegro. Carla va a: “Bandoneón en el bar”. Por Néstor."><title>Carla Montenegro. Carla va a: “Bandoneón en el bar”. Por Néstor.</title><circle cx="145.9" cy="164.7" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="145.9" cy="164.7" r="22"/><text x="157.8" y="183.2" text-anchor="start" font-size="12" fill="currentColor">Carla</text></a>
-<a href="#red-32" data-nodo data-socio="32" data-anillo="2" data-medio="7" aria-label="Camila Zárate. Camila busca: “pensar de a varios sobre la verdad”. Por Néstor."><title>Camila Zárate. Camila busca: “pensar de a varios sobre la verdad”. Por Néstor.</title><circle cx="52.6" cy="213.6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="52.6" cy="213.6" r="22"/><text x="56.9" y="236.1" text-anchor="middle" font-size="12" fill="currentColor">Camila</text></a>
-<a href="#red-40" data-nodo data-socio="40" data-anillo="2" data-medio="7" aria-label="Abril Navarro. Abril va a: “Bandoneón en el bar”. Por Néstor."><title>Abril Navarro. Abril va a: “Bandoneón en el bar”. Por Néstor.</title><circle cx="-52.6" cy="213.6" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-52.6" cy="213.6" r="22"/><text x="-56.9" y="236.1" text-anchor="middle" font-size="12" fill="currentColor">Abril</text></a>
-<a href="#red-9" data-nodo data-socio="9" data-anillo="2" data-medio="12" aria-label="Ramiro Echeverría. Ramiro da: “Hago pedales de guitarra y enseño a soldarlos”. Por Agustina."><title>Ramiro Echeverría. Ramiro da: “Hago pedales de guitarra y enseño a soldarlos”. Por Agustina.</title><circle cx="-145.9" cy="164.7" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-145.9" cy="164.7" r="22"/><text x="-157.8" y="183.2" text-anchor="end" font-size="12" fill="currentColor">Ramiro</text></a>
-<a href="#red-11" data-nodo data-socio="11" data-anillo="2" data-medio="12" aria-label="Ernesto Villalba. Ernesto da: “Muestro primeras ediciones de poesía en mi librería de Boedo”. Por Agustina."><title>Ernesto Villalba. Ernesto da: “Muestro primeras ediciones de poesía en mi librería de Boedo”. Por Agustina.</title><circle cx="-205.7" cy="78" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-205.7" cy="78" r="22"/><text x="-222.5" y="89.4" text-anchor="end" font-size="12" fill="currentColor">Ernesto</text></a>
-<a href="#red-20" data-nodo data-socio="20" data-anillo="2" data-medio="12" aria-label="Natalia Godoy. Natalia busca: “Aprender a modelar arcilla y hacer cerámica”. Por Agustina."><title>Natalia Godoy. Natalia busca: “Aprender a modelar arcilla y hacer cerámica”. Por Agustina.</title><circle cx="-218.4" cy="-26.5" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-218.4" cy="-26.5" r="22"/><text x="-236.3" y="-23.7" text-anchor="end" font-size="12" fill="currentColor">Natalia</text></a>
-<a href="#red-33" data-nodo data-socio="33" data-anillo="2" data-medio="12" aria-label="Ezequiel Santillán. Ezequiel busca: “una mesa de pensar sin debate”. Por Agustina."><title>Ezequiel Santillán. Ezequiel busca: “una mesa de pensar sin debate”. Por Agustina.</title><circle cx="-181.1" cy="-125" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-181.1" cy="-125" r="22"/><text x="-195.9" y="-130.2" text-anchor="end" font-size="12" fill="currentColor">Ezequiel</text></a>
-<a href="#red-42" data-nodo data-socio="42" data-anillo="2" data-medio="12" aria-label="Ana Ibarlucía. A Ana le gusta dar: “contar &quot;Leer despacio&quot;, el libro que más presté”. Por Agustina."><title>Ana Ibarlucía. A Ana le gusta dar: “contar &quot;Leer despacio&quot;, el libro que más presté”. Por Agustina.</title><circle cx="-102.2" cy="-194.8" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle class="mapa-tocar" cx="-102.2" cy="-194.8" r="22"/><text x="-110.6" y="-205.7" text-anchor="end" font-size="12" fill="currentColor">Ana</text></a>
-</svg>
-</div>
-<div id="mapa-detalle" class="mapa-detalle" role="region" aria-label="Detalle de la persona" tabindex="-1" hidden></div>
-<figcaption class="nota">Tocá a alguien de afuera para ver qué busca o qué le gusta dar, y por quién llegás.
-<span class="mapa-guia">Punto lleno: se conocen. Punto abierto: por alguien más.<br>Si no entra, mové el plano a los costados.</span></figcaption>
-</figure>
-<div data-mapa-lista>
-<h3>La gente que conocés</h3>
-<ul class="renglones"><li data-lista-anillo="1" data-socio="5"><a href="../socios/5/" data-persona="5">Celeste Arregui</a> <span data-camino data-socio="5" data-pasos="1" data-medio="">Se conocen</span></li>
-<li data-lista-anillo="1" data-socio="7"><a href="../socios/7/" data-persona="7">Néstor Galíndez</a> <span data-camino data-socio="7" data-pasos="1" data-medio="">Se conocen</span></li>
-<li data-lista-anillo="1" data-socio="12"><a href="../socios/12/" data-persona="12">Agustina Peña</a> <span data-camino data-socio="12" data-pasos="1" data-medio="">Se conocen</span></li></ul>
-<h3>A dos pasos</h3>
-<ul class="renglones"><li id="red-6" data-lista-anillo="2" data-socio="6" data-medio="5,12"><a href="../socios/6/" data-persona="6">Beto Ferreyra</a> <span data-camino data-socio="6" data-pasos="2" data-medio="5,12">A dos pasos: por Celeste y Agustina</span>
-<p data-red-frase>Beto busca: “Entender de vinos sin chamuyo”. Por Celeste y Agustina.</p>
-<form method="get" action="#" data-red-sumarme data-tipo="propuesta" data-id="p-052" data-muestra="fija"><input type="hidden" name="tipo" value="busco"><button type="submit" class="boton">Sumarme</button> <a href="../propuestas/p-052/">Ver</a></form>
-<form method="get" action="#" data-red-presentar data-a="6" data-medio="5,12" data-muestra="fija"><input type="hidden" name="a" value="6"><label>Pedirle que nos presente a <select name="medio" required>
-<option value="5" data-medio="5">Celeste</option>
-<option value="12" data-medio="12">Agustina</option>
-</select></label> <button type="submit" class="boton-sec">Pedir</button></form>
-</li>
-<li id="red-19" data-lista-anillo="2" data-socio="19" data-medio="5"><a href="../socios/19/" data-persona="19">Gonzalo Pereyra</a> <span data-camino data-socio="19" data-pasos="2" data-medio="5">Por Celeste, que avalaste</span>
-<p data-red-frase>Gonzalo da: “Juegos de mesa de estrategia”. Por Celeste.</p>
-<form method="get" action="#" data-red-sumarme data-tipo="encuentro" data-id="e-20" data-muestra="fija"><button type="submit" class="boton">Sumarme</button> <a href="../encuentros/e-20/">Ver</a></form>
-<form method="get" action="#" data-red-presentar data-a="19" data-medio="5" data-muestra="fija"><input type="hidden" name="a" value="19"><input type="hidden" name="medio" value="5"><button type="submit" class="boton-sec">Pedirle a Celeste que nos presente</button></form>
-</li>
-<li id="red-24" data-lista-anillo="2" data-socio="24" data-medio="5,12"><a href="../socios/24/" data-persona="24">Julia Saavedra</a> <span data-camino data-socio="24" data-pasos="2" data-medio="5,12">A dos pasos: por Celeste y Agustina</span>
-<p data-red-frase>Julia va a: “El barrio con quien lo conoce de memoria: dónde comprar cada cosa”. Por Celeste y Agustina.</p>
-<form method="get" action="#" data-red-sumarme data-tipo="encuentro" data-id="e-40" data-muestra="fija"><button type="submit" class="boton">Sumarme</button> <a href="../encuentros/e-40/">Ver</a></form>
-<form method="get" action="#" data-red-presentar data-a="24" data-medio="5,12" data-muestra="fija"><input type="hidden" name="a" value="24"><label>Pedirle que nos presente a <select name="medio" required>
-<option value="5" data-medio="5">Celeste</option>
-<option value="12" data-medio="12">Agustina</option>
-</select></label> <button type="submit" class="boton-sec">Pedir</button></form>
-</li>
-<li id="red-43" data-lista-anillo="2" data-socio="43" data-medio="5,12"><a href="../socios/43/" data-persona="43">Martín Sarasola</a> <span data-camino data-socio="43" data-pasos="2" data-medio="5,12">A dos pasos: por Celeste y Agustina</span>
-<p data-red-frase>A Martín le gusta dar: “la vuelta de los lagos de Palermo, a las siete y media”. Por Celeste y Agustina.</p>
-
-<form method="get" action="#" data-red-presentar data-a="43" data-medio="5,12" data-muestra="fija"><input type="hidden" name="a" value="43"><label>Pedirle que nos presente a <select name="medio" required>
-<option value="5" data-medio="5">Celeste</option>
-<option value="12" data-medio="12">Agustina</option>
-</select></label> <button type="submit" class="boton-sec">Pedir</button></form>
-</li>
-<li id="red-52" data-lista-anillo="2" data-socio="52" data-medio="5"><a href="../socios/52/" data-persona="52">Brenda Rinaldi</a> <span data-camino data-socio="52" data-pasos="2" data-medio="5">Por Celeste, que avalaste</span>
-<p data-red-frase>A Brenda le gusta dar: “te explico cómo plantar tomates en el balcón”. Por Celeste.</p>
-
-<form method="get" action="#" data-red-presentar data-a="52" data-medio="5" data-muestra="fija"><input type="hidden" name="a" value="52"><input type="hidden" name="medio" value="5"><button type="submit" class="boton-sec">Pedirle a Celeste que nos presente</button></form>
-</li>
-<li id="red-14" data-lista-anillo="2" data-socio="14" data-medio="7"><a href="../socios/14/" data-persona="14">Carla Montenegro</a> <span data-camino data-socio="14" data-pasos="2" data-medio="7">Por Néstor, que avalaste</span>
-<p data-red-frase>Carla va a: “Bandoneón en el bar”. Por Néstor.</p>
-<form method="get" action="#" data-red-sumarme data-tipo="encuentro" data-id="e-11" data-muestra="fija"><button type="submit" class="boton">Sumarme</button> <a href="../encuentros/e-11/">Ver</a></form>
-<form method="get" action="#" data-red-presentar data-a="14" data-medio="7" data-muestra="fija"><input type="hidden" name="a" value="14"><input type="hidden" name="medio" value="7"><button type="submit" class="boton-sec">Pedirle a Néstor que nos presente</button></form>
-</li>
-<li id="red-32" data-lista-anillo="2" data-socio="32" data-medio="7"><a href="../socios/32/" data-persona="32">Camila Zárate</a> <span data-camino data-socio="32" data-pasos="2" data-medio="7">Por Néstor, que avalaste</span>
-<p data-red-frase>Camila busca: “pensar de a varios sobre la verdad”. Por Néstor.</p>
-
-<form method="get" action="#" data-red-presentar data-a="32" data-medio="7" data-muestra="fija"><input type="hidden" name="a" value="32"><input type="hidden" name="medio" value="7"><button type="submit" class="boton-sec">Pedirle a Néstor que nos presente</button></form>
-</li>
-<li id="red-40" data-lista-anillo="2" data-socio="40" data-medio="7"><a href="../socios/40/" data-persona="40">Abril Navarro</a> <span data-camino data-socio="40" data-pasos="2" data-medio="7">Por Néstor, que avalaste</span>
-<p data-red-frase>Abril va a: “Bandoneón en el bar”. Por Néstor.</p>
-<form method="get" action="#" data-red-sumarme data-tipo="encuentro" data-id="e-11" data-muestra="fija"><button type="submit" class="boton">Sumarme</button> <a href="../encuentros/e-11/">Ver</a></form>
-<form method="get" action="#" data-red-presentar data-a="40" data-medio="7" data-muestra="fija"><input type="hidden" name="a" value="40"><input type="hidden" name="medio" value="7"><button type="submit" class="boton-sec">Pedirle a Néstor que nos presente</button></form>
-</li>
-<li id="red-9" data-lista-anillo="2" data-socio="9" data-medio="12"><a href="../socios/9/" data-persona="9">Ramiro Echeverría</a> <span data-camino data-socio="9" data-pasos="2" data-medio="12">Por Agustina, que avalaste</span>
-<p data-red-frase>Ramiro da: “Hago pedales de guitarra y enseño a soldarlos”. Por Agustina.</p>
-<form method="get" action="#" data-red-sumarme data-tipo="propuesta" data-id="p-053" data-muestra="fija"><input type="hidden" name="tipo" value="busco"><button type="submit" class="boton">Sumarme</button> <a href="../propuestas/p-053/">Ver</a></form>
-<form method="get" action="#" data-red-presentar data-a="9" data-medio="12" data-muestra="fija"><input type="hidden" name="a" value="9"><input type="hidden" name="medio" value="12"><button type="submit" class="boton-sec">Pedirle a Agustina que nos presente</button></form>
-</li>
-<li id="red-11" data-lista-anillo="2" data-socio="11" data-medio="12"><a href="../socios/11/" data-persona="11">Ernesto Villalba</a> <span data-camino data-socio="11" data-pasos="2" data-medio="12">Por Agustina, que avalaste</span>
-<p data-red-frase>Ernesto da: “Muestro primeras ediciones de poesía en mi librería de Boedo”. Por Agustina.</p>
-<form method="get" action="#" data-red-sumarme data-tipo="propuesta" data-id="p-026" data-muestra="fija"><input type="hidden" name="tipo" value="busco"><button type="submit" class="boton">Sumarme</button> <a href="../propuestas/p-026/">Ver</a></form>
-<form method="get" action="#" data-red-presentar data-a="11" data-medio="12" data-muestra="fija"><input type="hidden" name="a" value="11"><input type="hidden" name="medio" value="12"><button type="submit" class="boton-sec">Pedirle a Agustina que nos presente</button></form>
-</li>
-<li id="red-20" data-lista-anillo="2" data-socio="20" data-medio="12"><a href="../socios/20/" data-persona="20">Natalia Godoy</a> <span data-camino data-socio="20" data-pasos="2" data-medio="12">Por Agustina, que avalaste</span>
-<p data-red-frase>Natalia busca: “Aprender a modelar arcilla y hacer cerámica”. Por Agustina.</p>
-<form method="get" action="#" data-red-sumarme data-tipo="propuesta" data-id="p-070" data-muestra="fija"><input type="hidden" name="tipo" value="busco"><button type="submit" class="boton">Sumarme</button> <a href="../propuestas/p-070/">Ver</a></form>
-<form method="get" action="#" data-red-presentar data-a="20" data-medio="12" data-muestra="fija"><input type="hidden" name="a" value="20"><input type="hidden" name="medio" value="12"><button type="submit" class="boton-sec">Pedirle a Agustina que nos presente</button></form>
-</li>
-<li id="red-33" data-lista-anillo="2" data-socio="33" data-medio="12"><a href="../socios/33/" data-persona="33">Ezequiel Santillán</a> <span data-camino data-socio="33" data-pasos="2" data-medio="12">Por Agustina, que avalaste</span>
-<p data-red-frase>Ezequiel busca: “una mesa de pensar sin debate”. Por Agustina.</p>
-
-<form method="get" action="#" data-red-presentar data-a="33" data-medio="12" data-muestra="fija"><input type="hidden" name="a" value="33"><input type="hidden" name="medio" value="12"><button type="submit" class="boton-sec">Pedirle a Agustina que nos presente</button></form>
-</li>
-<li id="red-42" data-lista-anillo="2" data-socio="42" data-medio="12"><a href="../socios/42/" data-persona="42">Ana Ibarlucía</a> <span data-camino data-socio="42" data-pasos="2" data-medio="12">Por Agustina, que avalaste</span>
-<p data-red-frase>A Ana le gusta dar: “contar &quot;Leer despacio&quot;, el libro que más presté”. Por Agustina.</p>
-
-<form method="get" action="#" data-red-presentar data-a="42" data-medio="12" data-muestra="fija"><input type="hidden" name="a" value="42"><input type="hidden" name="medio" value="12"><button type="submit" class="boton-sec">Pedirle a Agustina que nos presente</button></form>
-</li></ul>
-</div>
-</div><script>
-(() => {
-  const raiz = document.querySelector('[data-mapa-red]');
-  if (!raiz) return;
-  const plano = raiz.querySelector('[data-mapa]');
-  const caja = raiz.querySelector('.mapa-desplazamiento');
-  const detalle = raiz.querySelector('.mapa-detalle');
-  let elegido;
-  const centrar = () => { caja.scrollLeft = (caja.scrollWidth - caja.clientWidth) / 2; };
-  centrar();
-  const cerrar = () => {
-    detalle.hidden = true;
-    detalle.replaceChildren();
-    plano.querySelectorAll('.mapa-elegido,.mapa-enlace-activo').forEach(el => el.classList.remove('mapa-elegido', 'mapa-enlace-activo'));
-    if (elegido) { elegido.setAttribute('aria-expanded', 'false'); elegido.focus(); }
-  };
-  plano.querySelectorAll('a[data-anillo="2"]').forEach(nodo => {
-    nodo.setAttribute('aria-controls', 'mapa-detalle');
-    nodo.setAttribute('aria-expanded', 'false');
-    nodo.addEventListener('click', event => {
-      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button) return;
-      const fila = document.getElementById(nodo.getAttribute('href').slice(1));
-      if (!fila) return;
-      event.preventDefault();
-      cerrar();
-      elegido = nodo;
-      nodo.classList.add('mapa-elegido');
-      nodo.setAttribute('aria-expanded', 'true');
-      plano.querySelectorAll('[data-enlace]').forEach(linea => {
-        if (linea.getAttribute('data-a') === nodo.getAttribute('data-socio')) linea.classList.add('mapa-enlace-activo');
-      });
-      const copia = fila.cloneNode(true);
-      copia.removeAttribute('id');
-      const lista = document.createElement('ul');
-      lista.className = 'renglones';
-      lista.append(copia);
-      const boton = document.createElement('button');
-      boton.type = 'button';
-      boton.className = 'mapa-cerrar';
-      boton.textContent = 'Cerrar detalle';
-      boton.addEventListener('click', cerrar);
-      detalle.append(boton, lista);
-      detalle.hidden = false;
-      detalle.focus({ preventScroll: true });
-      detalle.scrollIntoView({ block: 'nearest', behavior: 'instant' });
-    });
-  });
-  detalle.addEventListener('keydown', event => { if (event.key === 'Escape') { event.preventDefault(); cerrar(); } });
-})();
-</script>
-<p data-sin-aval>Entraste sin aval.</p>
-<h3>A quién avalaste</h3>
-<ul class="renglones"><li data-avale data-socio="5" data-encuentros="1"><a href="../socios/5/" data-persona="5">Celeste Arregui</a> <span data-camino data-socio="5" data-pasos="1" data-medio="">Se conocen</span> <span class="nota">fue a 1 encuentro</span></li>
-<li data-avale data-socio="7" data-encuentros="0"><a href="../socios/7/" data-persona="7">Néstor Galíndez</a> <span data-camino data-socio="7" data-pasos="1" data-medio="">Se conocen</span> <span class="nota">todavía no fue a ningún encuentro</span></li>
-<li data-avale data-socio="12" data-encuentros="2"><a href="../socios/12/" data-persona="12">Agustina Peña</a> <span data-camino data-socio="12" data-pasos="1" data-medio="">Se conocen</span> <span class="nota">fue a 2 encuentros</span></li></ul>
-<h3>A quién conociste en encuentros</h3>
-<p class="nota">Todavía nadie. Cada encuentro que se cierra suma gente.</p>
-
-</section>
-
-<section class="carnet-avales">
-<h2 class="cond">Avalar a alguien</h2>
-<p data-avales-quedan data-valor="0">No te quedan avales este año</p>
-<p class="nota" data-sin-avales>Cada socio da hasta 3 avales por año.</p>
-</section>
-<section class="libro" data-carnet="libro" data-valor="l-34">
-<p class="cond rotulo">Libro de bienvenida</p>
-<p><cite>Máquinas que se equivocan</cite> <span class="libro-autor">de Verónica Salinas</span></p>
-<p class="nota">Elegido por lo que buscás (ia, seguridad).</p>
-</section>
 </div>
 </section>
 </main>
